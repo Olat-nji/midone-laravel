@@ -1,2 +1,2 @@
 # midone-laravel
-A Midone Powered, Laravel Starter Fortified with Laravel Fortify
+A Midone Powered, Laravel Starter Dashboard Fortified with Laravel Fortify
