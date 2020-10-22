@@ -95,7 +95,7 @@
         
             <div
                 class="fixed top-0 w-full h-full bg-gray-900"
-                style="height:100%; background-image: url({{ asset('public/bg.png') }}); background-size: 100%; background-repeat: repeat;"
+                style="height:100%; background-image: url({{ asset('img/register_bg_2.png') }}); background-size: 100%; background-repeat: repeat;"
               ></div>
               
               <div class="container mx-auto px-4 mt-5 h-full">
