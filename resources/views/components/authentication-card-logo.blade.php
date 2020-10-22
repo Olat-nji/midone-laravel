@@ -1,4 +1,4 @@
 <a href="/">
     
-    <img class="w-16 h-16" src="{{asset('public/img/apple-touch-icon.png')}}">
+    <img class="w-16 h-16" src="{{asset('img/apple-touch-icon.png')}}">
 </a>
