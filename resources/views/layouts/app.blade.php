@@ -17,8 +17,8 @@
         
         @livewireStyles
         @livewireScripts
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/init-alpine.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" data-turbolinks-reload defer></script>
+        <script src="{{ asset('js/init-alpine.js') }}" data-turbolinks-reload defer></script>
         
 
         <!-- END: CSS Assets-->
@@ -57,6 +57,6 @@
 
         
     </body>
-    <script src="{{ asset('midone/dist/js/app.js')}}"></script>
+    <script src="{{ asset('midone/dist/js/app.js')}}" data-turbolinks-reload></script>
     @yield('scripts')
 </html>

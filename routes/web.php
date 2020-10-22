@@ -53,7 +53,7 @@ Route::redirect('/', url('login'), 301);
         Route::get('/user/profile', [UserProfileController::class, 'show'])
                     ->name('profile.show');
 
-        Route::get('/user/api-tokens', [ApiTokenController::class, 'index'])->name('api-tokens.index');
+        
         // API...
         if (MainHelper::hasApiFeatures()) {
             Route::get('/user/api-tokens', [ApiTokenController::class, 'index'])->name('api-tokens.index');

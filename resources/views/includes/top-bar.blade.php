@@ -215,7 +215,9 @@
                                 </div>
                                 <div class="p-2">
                                     <a href="{{ route('profile.show') }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-dark-3 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile </a>
+                                    @if (App\Helpers\MainHelper::hasApiFeatures()) 
                                     <a href="{{ route('api-tokens.index') }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-dark-3 rounded-md"> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Api Tokens </a>
+                                    @endif
                                     <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-dark-3 rounded-md"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Help </a>
                                 </div>
 
