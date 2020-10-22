@@ -12,13 +12,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="stylesheet" href="{{ asset('public/midone/dist/css/app.css')}}" />
-        <link rel="stylesheet" href="{{ asset('public/css/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('midone/dist/css/app.css')}}" />
+        <link rel="stylesheet" href="{{ asset('css/fontawesome-free/css/all.min.css') }}">
         
         @livewireStyles
         @livewireScripts
-        <script src="{{ asset('public/js/app.js') }}" defer></script>
-        <script src="{{ asset('public/js/init-alpine.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/init-alpine.js') }}" defer></script>
         
 
         <!-- END: CSS Assets-->
@@ -57,6 +57,6 @@
 
         
     </body>
-    <script src="{{ asset('public/midone/dist/js/app.js')}}"></script>
+    <script src="{{ asset('midone/dist/js/app.js')}}"></script>
     @yield('scripts')
 </html>

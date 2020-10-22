@@ -1,5 +1,9 @@
 <?php
-
+if(env('APP_ENV')=='local'){
+    $path='/midone-jetstream-initial';
+}else{
+    $path=null;
+}
 return [
 
     /*
@@ -42,7 +46,7 @@ return [
     |
     */
 
-    'asset_url'  => '/midone-jetstream-initial',
+    'asset_url'  => $path,
 
     /*
     |--------------------------------------------------------------------------

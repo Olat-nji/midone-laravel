@@ -11,13 +11,13 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('public/css/app2.css') }}" data-turbolinks-reload>
+        <link rel="stylesheet" href="{{ asset('css/app2.css') }}" data-turbolinks-reload>
         {{-- <link rel="stylesheet" href="{{ asset('public/css/fontawesome-free/css/all.min.css') }}" data-turbolinks-reload> --}}
 
         <!-- Scripts -->
         @livewireStyles
         @livewireScripts
-        <script src="{{ asset('public/js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
         
         
     </head>
