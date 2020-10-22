@@ -30,28 +30,28 @@
                                 <div class="mb-5">
                                     <a href="" class="flex items-center mt-2">
                                         <div class="w-8 h-8 image-fit">
-                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-4.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
                                         </div>
                                         <div class="ml-3">John Travolta</div>
                                         <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">johntravolta@left4code.com</div>
                                     </a>
                                     <a href="" class="flex items-center mt-2">
                                         <div class="w-8 h-8 image-fit">
-                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-11.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-11.jpg')}}">
                                         </div>
                                         <div class="ml-3">Tom Cruise</div>
                                         <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">tomcruise@left4code.com</div>
                                     </a>
                                     <a href="" class="flex items-center mt-2">
                                         <div class="w-8 h-8 image-fit">
-                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-6.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-6.jpg')}}">
                                         </div>
                                         <div class="ml-3">John Travolta</div>
                                         <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">johntravolta@left4code.com</div>
                                     </a>
                                     <a href="" class="flex items-center mt-2">
                                         <div class="w-8 h-8 image-fit">
-                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-13.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-13.jpg')}}">
                                         </div>
                                         <div class="ml-3">Tom Cruise</div>
                                         <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">tomcruise@left4code.com</div>
@@ -60,28 +60,28 @@
                                 <div class="search-result__content__title">Products</div>
                                 <a href="" class="flex items-center mt-2">
                                     <div class="w-8 h-8 image-fit">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/preview-13.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/preview-13.jpg')}}">
                                     </div>
                                     <div class="ml-3">Samsung Galaxy S20 Ultra</div>
                                     <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">Smartphone &amp; Tablet</div>
                                 </a>
                                 <a href="" class="flex items-center mt-2">
                                     <div class="w-8 h-8 image-fit">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/preview-11.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/preview-11.jpg')}}">
                                     </div>
                                     <div class="ml-3">Dell XPS 13</div>
                                     <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">PC &amp; Laptop</div>
                                 </a>
                                 <a href="" class="flex items-center mt-2">
                                     <div class="w-8 h-8 image-fit">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/preview-3.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/preview-3.jpg')}}">
                                     </div>
                                     <div class="ml-3">Samsung Q90 QLED TV</div>
                                     <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">Electronic</div>
                                 </a>
                                 <a href="" class="flex items-center mt-2">
                                     <div class="w-8 h-8 image-fit">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/preview-5.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/preview-5.jpg')}}">
                                     </div>
                                     <div class="ml-3">Nike Tanjun</div>
                                     <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">Sport &amp; Outdoor</div>
@@ -133,7 +133,7 @@
                                 <div class="notification-content__title">Notifications</div>
                                 <div class="cursor-pointer relative flex items-center ">
                                     <div class="w-12 h-12 flex-none image-fit mr-1">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-4.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
                                         <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
                                     </div>
                                     <div class="ml-2 overflow-hidden">
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="cursor-pointer relative flex items-center mt-5">
                                     <div class="w-12 h-12 flex-none image-fit mr-1">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-11.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-11.jpg')}}">
                                         <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
                                     </div>
                                     <div class="ml-2 overflow-hidden">
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="cursor-pointer relative flex items-center mt-5">
                                     <div class="w-12 h-12 flex-none image-fit mr-1">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-6.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-6.jpg')}}">
                                         <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
                                     </div>
                                     <div class="ml-2 overflow-hidden">
@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="cursor-pointer relative flex items-center mt-5">
                                     <div class="w-12 h-12 flex-none image-fit mr-1">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-13.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-13.jpg')}}">
                                         <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
                                     </div>
                                     <div class="ml-2 overflow-hidden">
@@ -185,7 +185,7 @@
                                 </div>
                                 <div class="cursor-pointer relative flex items-center mt-5">
                                     <div class="w-12 h-12 flex-none image-fit mr-1">
-                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('public/dist/images/profile-5.jpg')}}">
+                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-5.jpg')}}">
                                         <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
                                     </div>
                                     <div class="ml-2 overflow-hidden">

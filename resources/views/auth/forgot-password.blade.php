@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         
-        {{-- <x-authentication-card-logo /> --}}
+        <x-authentication-card-logo />
         <div
         class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0"
       >

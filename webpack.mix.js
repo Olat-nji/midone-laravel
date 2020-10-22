@@ -80,6 +80,6 @@ mix.js('resources/midone/js/app.js', 'public/midone/dist/js')
     //         ]
     //     }
     // })
-    // .copyDirectory('resources/midone/json', 'public/dist/json')
-    // .copyDirectory('resources/midone/fonts', 'public/dist/fonts')
-    // .copyDirectory('resources/midone/images', 'public/dist/images')
+    // .copyDirectory('resources/midone/json', 'midone/dist/json')
+    // .copyDirectory('resources/midone/fonts', 'midone/dist/fonts')
+    // .copyDirectory('resources/midone/images', 'midone/dist/images')

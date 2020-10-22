@@ -80,7 +80,7 @@
                                 <div class="intro-y">
                                     <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                                         <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-4.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
                                         </div>
                                         <div class="ml-4 mr-auto">
                                             <div class="font-medium">Russell Crowe</div>
@@ -92,7 +92,7 @@
                                 <div class="intro-y">
                                     <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                                         <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-14.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-14.jpg')}}">
                                         </div>
                                         <div class="ml-4 mr-auto">
                                             <div class="font-medium">Brad Pitt</div>
@@ -104,7 +104,7 @@
                                 <div class="intro-y">
                                     <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                                         <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-6.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-6.jpg')}}">
                                         </div>
                                         <div class="ml-4 mr-auto">
                                             <div class="font-medium">Angelina Jolie</div>
@@ -116,7 +116,7 @@
                                 <div class="intro-y">
                                     <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                                         <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-4.jpg')}}">
+                                            <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
                                         </div>
                                         <div class="ml-4 mr-auto">
                                             <div class="font-medium">Arnold Schwarzenegger</div>
@@ -159,13 +159,13 @@
                                             <td class="w-40">
                                                 <div class="flex">
                                                     <div class="w-10 h-10 image-fit zoom-in">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-7.jpg')}}" title="Uploaded at 2 December 2021">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-7.jpg')}}" title="Uploaded at 2 December 2021">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-4.jpg')}}" title="Uploaded at 23 May 2020">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-4.jpg')}}" title="Uploaded at 23 May 2020">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-3.jpg')}}" title="Uploaded at 17 November 2021">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-3.jpg')}}" title="Uploaded at 17 November 2021">
                                                     </div>
                                                 </div>
                                             </td>
@@ -188,13 +188,13 @@
                                             <td class="w-40">
                                                 <div class="flex">
                                                     <div class="w-10 h-10 image-fit zoom-in">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-4.jpg')}}" title="Uploaded at 21 July 2022">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-4.jpg')}}" title="Uploaded at 21 July 2022">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-13.jpg')}}" title="Uploaded at 25 June 2021">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-13.jpg')}}" title="Uploaded at 25 June 2021">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-6.jpg')}}" title="Uploaded at 19 October 2022">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-6.jpg')}}" title="Uploaded at 19 October 2022">
                                                     </div>
                                                 </div>
                                             </td>
@@ -217,13 +217,13 @@
                                             <td class="w-40">
                                                 <div class="flex">
                                                     <div class="w-10 h-10 image-fit zoom-in">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-3.jpg')}}" title="Uploaded at 22 June 2021">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-3.jpg')}}" title="Uploaded at 22 June 2021">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-3.jpg')}}" title="Uploaded at 22 April 2022">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-3.jpg')}}" title="Uploaded at 22 April 2022">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-10.jpg')}}" title="Uploaded at 6 September 2022">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-10.jpg')}}" title="Uploaded at 6 September 2022">
                                                     </div>
                                                 </div>
                                             </td>
@@ -246,13 +246,13 @@
                                             <td class="w-40">
                                                 <div class="flex">
                                                     <div class="w-10 h-10 image-fit zoom-in">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-11.jpg')}}" title="Uploaded at 30 March 2022">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-11.jpg')}}" title="Uploaded at 30 March 2022">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-14.jpg')}}" title="Uploaded at 2 October 2021">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-14.jpg')}}" title="Uploaded at 2 October 2021">
                                                     </div>
                                                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('public/dist/images/preview-11.jpg')}}" title="Uploaded at 6 November 2021">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="tooltip rounded-full" src="{{ asset('midone/dist/images/preview-11.jpg')}}" title="Uploaded at 6 November 2021">
                                                     </div>
                                                 </div>
                                             </td>
@@ -317,7 +317,7 @@
                                     <div class="intro-x">
                                         <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-4.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
                                             </div>
                                             <div class="ml-4 mr-auto">
                                                 <div class="font-medium">Russell Crowe</div>
@@ -329,7 +329,7 @@
                                     <div class="intro-x">
                                         <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-14.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-14.jpg')}}">
                                             </div>
                                             <div class="ml-4 mr-auto">
                                                 <div class="font-medium">Brad Pitt</div>
@@ -341,7 +341,7 @@
                                     <div class="intro-x">
                                         <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-6.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-6.jpg')}}">
                                             </div>
                                             <div class="ml-4 mr-auto">
                                                 <div class="font-medium">Angelina Jolie</div>
@@ -353,7 +353,7 @@
                                     <div class="intro-x">
                                         <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-4.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
                                             </div>
                                             <div class="ml-4 mr-auto">
                                                 <div class="font-medium">Arnold Schwarzenegger</div>
@@ -365,7 +365,7 @@
                                     <div class="intro-x">
                                         <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-2.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-2.jpg')}}">
                                             </div>
                                             <div class="ml-4 mr-auto">
                                                 <div class="font-medium">Bruce Willis</div>
@@ -390,7 +390,7 @@
                                     <div class="intro-x relative flex items-center mb-3">
                                         <div class="report-timeline__image">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-1.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-1.jpg')}}">
                                             </div>
                                         </div>
                                         <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
@@ -404,7 +404,7 @@
                                     <div class="intro-x relative flex items-center mb-3">
                                         <div class="report-timeline__image">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-13.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-13.jpg')}}">
                                             </div>
                                         </div>
                                         <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
@@ -416,13 +416,13 @@
                                                 <div class="mt-1">Added 3 new photos</div>
                                                 <div class="flex mt-2">
                                                     <div class="tooltip w-8 h-8 image-fit mr-1 zoom-in" title="Nike Tanjun">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-md border border-white" src="{{ asset('public/dist/images/preview-10.jpg')}}">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-md border border-white" src="{{ asset('midone/dist/images/preview-10.jpg')}}">
                                                     </div>
                                                     <div class="tooltip w-8 h-8 image-fit mr-1 zoom-in" title="Apple MacBook Pro 13">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-md border border-white" src="{{ asset('public/dist/images/preview-1.jpg')}}">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-md border border-white" src="{{ asset('midone/dist/images/preview-1.jpg')}}">
                                                     </div>
                                                     <div class="tooltip w-8 h-8 image-fit mr-1 zoom-in" title="Sony Master Series A9G">
-                                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-md border border-white" src="{{ asset('public/dist/images/preview-15.jpg')}}">
+                                                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-md border border-white" src="{{ asset('midone/dist/images/preview-15.jpg')}}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,7 +432,7 @@
                                     <div class="intro-x relative flex items-center mb-3">
                                         <div class="report-timeline__image">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-3.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-3.jpg')}}">
                                             </div>
                                         </div>
                                         <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
@@ -446,7 +446,7 @@
                                     <div class="intro-x relative flex items-center mb-3">
                                         <div class="report-timeline__image">
                                             <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('public/dist/images/profile-11.jpg')}}">
+                                                <img alt="Midone Tailwind HTML Admin Template" src="{{ asset('midone/dist/images/profile-11.jpg')}}">
                                             </div>
                                         </div>
                                         <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
