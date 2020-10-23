@@ -16,6 +16,7 @@
                         <div class="menu__title " :class="{ 'text-gray-800': !dark }"  :class="{ 'text-gray-200': dark }"> Dashboard </div>
                     </a>
                 </li>
+                
             </ul>
         </div>
         

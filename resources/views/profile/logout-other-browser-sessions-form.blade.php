@@ -62,9 +62,9 @@
                 </x-button>
 
 
-                <x-action-message class="ml-3" on="loggedOut">
-                    {{ __('Done.') }}
-                </x-action-message>
+                <div x-data="{ shown: false, timeout: null }" x-init="@this.on('loggedOut', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000);  })" x-show.transition.opacity.out.duration.1500ms="shown" style="display: none;" class='text-sm text-gray-600'>
+                            {{ 'Saved.' }}
+                        </div>
                 <x-dialog-modal wire:model="confirmingLogout">
                     <x-slot name="title">
                         {{ __('Logout Other Browser Sessions') }}

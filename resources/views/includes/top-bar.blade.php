@@ -94,6 +94,7 @@
 
                     
                     <div class="intro-x relative mr-3 sm:mr-6">
+                    
                       <button class="rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleTheme" aria-label="Toggle color mode">
                   <template x-if="!dark">
                     <svg

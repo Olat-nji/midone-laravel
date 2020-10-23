@@ -1,9 +1,7 @@
 // Fonts
 @import 'fonts/roboto';
-
 // Breakpoint
 @import 'breakpoint';
-
 // 3rd Parties
 @import '~tiny-slider/src/tiny-slider';
 @import '~highlight.js/scss/github';
@@ -16,12 +14,10 @@
 @import '~dropzone/dist/dropzone';
 @import '~zoom-vanilla.js/dist/zoom';
 @import '~tabulator-tables/dist/css/tabulator';
-
 // Animations
 @import 'typing-dots';
 @import 'zoom-in';
 @import 'intro';
-
 // Components
 @import 'top-bar';
 @import 'app';
@@ -72,9 +68,9 @@
 @import 'ckeditor';
 @import 'dropzone';
 @import 'search-result';
-@import 'mini-report-chart';
+// @import 'mini-report-chart';
 @import 'notification-content';
-@import 'report-maps';
+// @import 'report-maps';
 @import 'pos-dropdown';
 @import 'pos';
 @import 'toastify';
@@ -83,4 +79,4 @@
 @import 'tiny-slider';
 @import 'pristine';
 @import 'zoom-vanilla';
-@import 'dark-mode-switcher';
+// @import 'dark-mode-switcher';

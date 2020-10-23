@@ -76,9 +76,9 @@
 
 
                     <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <x-action-message class="mr-3" on="saved">
-                            {{ __('Added.') }}
-                            </x-jet-action-message>
+                        <div x-data="{ shown: false, timeout: null }" x-init="@this.on('saved', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000);  })" x-show.transition.opacity.out.duration.1500ms="shown" style="display: none;" class='text-sm text-gray-600'>
+                            {{ 'Added.' }}
+                        </div>
 
                             <x-button>
                                 {{ __('Add') }}
@@ -150,9 +150,9 @@
                 </div>
 
                     <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <x-action-message class="mr-3" on="saved">
-                            {{ __('Added.') }}
-                            </x-jet-action-message>
+                        <div x-data="{ shown: false, timeout: null }" x-init="@this.on('saved', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000);  })" x-show.transition.opacity.out.duration.1500ms="shown" style="display: none;" class='text-sm text-gray-600'>
+                            {{ 'Added.' }}
+                        </div>
 
                             <x-button>
                                 {{ __('Add') }}

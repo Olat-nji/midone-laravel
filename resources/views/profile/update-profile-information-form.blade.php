@@ -54,14 +54,16 @@
                         <x-input-error for="email" class="mt-2" />
                     </div>
 
+                    <div>
 
-                    <x-action-message class="ml-3" on="saved">
-                        {{ __('Done.') }}
-                    </x-action-message>
+                        <div x-data="{ shown: false, timeout: null }" x-init="@this.on('saved', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000);  })" x-show.transition.opacity.out.duration.1500ms="shown" style="display: none;" class='text-sm text-gray-600'>
+                            {{ 'Saved.' }}
+                        </div>
 
-                    <x-button wire:loading.attr="disabled" wire:target="photo">
-                        {{ __('Save') }}
-                    </x-button>
+                        <x-button wire:loading.attr="disabled" wire:target="photo">
+                            {{ __('Save') }}
+                        </x-button>
+                    </div>
                 </div>
             </div>
         </div>

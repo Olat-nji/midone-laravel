@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img class="w-16 h-16" src="{{asset('img/apple-touch-icon.png')}}">
         </x-slot>
 
         <div

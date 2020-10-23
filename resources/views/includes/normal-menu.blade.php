@@ -6,7 +6,7 @@
     <div class="border-opacity-25 border-gray-600 border b-t-0 my-6" style="border-top:0.5px;"></div>
     <ul>
         <li>
-            <a href="index.html" class="side-menu side-menu--active">
+            <a href="index.html" class="side-menu @if(request()->routeIs('dashboard')) side-menu--active @endif">
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__icon text-gray-800  "> <i data-feather="home"></i> </div>
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__title text-gray-800  "> Dashboard </div>
             </a>
