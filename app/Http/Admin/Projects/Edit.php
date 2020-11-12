@@ -31,9 +31,9 @@ class Edit extends Component
         'budget' => 'required|integer'
 
     ];
-    public Project $project;
+    public $project;
 
-    public function mount()
+    public function mount(Project $project)
     {
         $this->email = auth()->user()->email;
         $this->phone = auth()->user()->phone;
@@ -50,6 +50,8 @@ class Edit extends Component
         $this->urgency = $this->project->urgency;
         $this->website_url = $this->project->website_url;
         $this->extent_of_redesign = $this->project->extent_of_redesign;
+        
+        $this->project=$project;
     }
     public function updated($propertyName)
     {
@@ -111,9 +113,5 @@ class Edit extends Component
         return view('admin.projects.edit')->layout('admin.layouts.app');
     }
 
-    public function AddStep()
-    {
-        $this->validateStep();
-        $this->step = $this->step + 1;
-    }
+
 }
