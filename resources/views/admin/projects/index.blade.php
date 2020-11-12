@@ -45,7 +45,7 @@
         <!-- BEGIN: Blog Layout -->
 
         @foreach($projects as $key => $project)
-<div class="intro-y col-span-12 md:col-span-6 xl:col-span-4 box">
+        <div class="intro-y col-span-12 md:col-span-6 xl:col-span-4 box">
             <div class="flex items-center border-b border-gray-200 dark:border-dark-5 px-5 py-4">
                 <div class="w-10 h-10 flex-none image-fit">
                     <img alt="{{$project->user->name}}" class="rounded-full" src="{{$project->user->profile_photo_url}}">
@@ -58,15 +58,15 @@
                     <a href="javascript:;" class="dropdown-toggle w-5 h-5 text-gray-500 dark:text-gray-300"> <i data-feather="more-vertical" class="w-4 h-4"></i> </a>
                     <div class="dropdown-box w-40">
                         <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                            <a href="{{url("projects/".$project->id.'/edit')}}" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="edit-2" class="w-4 h-4 mr-2"></i> Edit</a>
-                            <a wire:click="confirmDelete" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete</a>
+                            <a href="{{url("projects/".$project->id.'/edit')}}" class="cursor-pointer flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="edit-2" class="w-4 h-4 mr-2"></i> Edit</a>
+                            <button wire:click="confirmDelete" class="cursor-pointer flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="p-5">
 
-                <a href="" class="block font-medium text-base mt-5">{{$project->name}}</a>
+                <a href="{{url('projects/'.$project->id)}}" class="block font-medium text-base mt-5">{{$project->name}}</a>
                 <div class="text-gray-700 dark:text-gray-600 mt-2">{!! Illuminate\Support\Str::words($project->description, 10, '...') !!}</div>
                 <div class="flex flex-wrap lg:flex-no-wrap items-center justify-center p-5">
                     <div class="w-full  mb-4 lg:mb-0 mr-auto">
@@ -83,12 +83,27 @@
             </div>
 
 
-            <div class="flex items-center px-5 py-3 border-t border-gray-200 dark:border-dark-5">
-                <a href="{{url('projects/'.$project->id)}}" class="button ml-auto  button--sm text-white bg-theme-1 mr-2">View</a>
-
-            </div>
         </div>
-        <x-dialog-modal wire:model="confirmingDelete">
+        @endforeach
+
+
+        <!-- END: Blog Layout -->
+        <!-- BEGIN: Pagination -->
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-no-wrap items-center">
+            {{$projects->links('admin.components.pagination')}}
+
+            <select class="w-20 input box mt-3 sm:mt-0" wire:model="pages">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+        </div>
+        <!-- END: Pagination -->
+    </div>
+
+    @foreach($projects as $key => $project)
+    <x-dialog-modal wire:model="confirmingDelete">
         <x-slot name="title">
             {{ __('Are You Sure You want to Delete?') }}
         </x-slot>
@@ -109,86 +124,5 @@
                 </x-button>
         </x-slot>
     </x-dialog-modal>
-        @endforeach
-        
-
-        <!-- END: Blog Layout -->
-        <!-- BEGIN: Pagination -->
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-no-wrap items-center">
-            {{$projects->links('admin.components.pagination')}}
-
-            <select class="w-20 input box mt-3 sm:mt-0" wire:model="pages">
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-            </select>
-        </div>
-        <!-- END: Pagination -->
-    </div>
-
-
-
-    @section('scripts')
-    <script>
-        // var tour = new Tour({
-        //     name: "{{ Str::uuid() }}",
-
-        //     backdrop: true,
-        //   steps: [
-
-
-        //   {
-        //     element: "#tour1",
-        //    title:'Welcome' ,
-
-        //     content: "You can directly view your stats here"
-        //   }
-        // ],
-        // template:'@include('tailwind-components.tour-modal')',
-        // onStart: function (tour) {
-        //     const body = document.querySelector('body')
-        //       const modal = document.querySelector('.modal')
-
-        //       body.classList.toggle('modal-active')
-        // },});
-
-        // // Initialize the tour
-        // tour.init();
-
-        // // Start the tour
-        // tour.start();
-
-        // var tou = new Tour({
-        //     name: "aslkds",
-        //     backdrop: true,
-        //   steps: [
-
-        //   {
-        //     element: "#profile",
-
-        //     title:'Profile',
-
-        //     content: "Manage settings like Personal details, Two factor authentication, Browser Sessions and also delete your account here"
-
-        //   }
-
-        // ],
-        // template:'@include('tailwind-components.tour-modal')'
-        // });
-
-        // // Initialize the tour
-        // tou.init();
-
-
-
-        // function startTour(){
-
-
-        // // Start the tour
-        //   tou.start();
-        //     };
-
-    </script>
-    @endsection
+    @endforeach
 </div>

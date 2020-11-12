@@ -19,7 +19,11 @@ class CreateNotificationsTable extends Migration
             $table->text('message')->nullable();
             $table->string('type')->nullable();
             $table->foreignId('user_id')->nullable();
+            $table->foreignId('from')->nullable();
             $table->foreignId('team_id')->nullable();
+            $table->string('seen')->default('false');
+            $table->text('link')->nullable();
+            
             $table->timestamps();
         });
     }

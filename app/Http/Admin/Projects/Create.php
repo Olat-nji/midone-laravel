@@ -5,6 +5,7 @@ namespace App\Http\Admin\Projects;
 use App\Models\Project;
 
 use App\Actions\Fortify\CreateNewUser;
+use App\Models\Notification;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -22,7 +23,7 @@ class Create extends Component
     // use PasswordValidationRules;
     public $step = 1;
 
-    
+
     public $user;
     public $team;
 
@@ -31,7 +32,7 @@ class Create extends Component
     public $name_of_user;
     public $password;
     public $password_confirmation;
-    
+
     public $name;
     public $purpose = 'Launch a New Website';
     public $ecommerce = 'No';
@@ -48,17 +49,14 @@ class Create extends Component
         'name' => 'required',
         'description' => 'required',
         'budget' => 'required|integer',
-        'name_of_user' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'confirmed'],
-
-    ];
+        
+        ];
 
     public function mount()
     {
         if (auth()->check()) {
-            $this->user=auth()->user();
-            
+            $this->user = auth()->user();
+
             $this->email = auth()->user()->email;
             $this->phone = auth()->user()->phone;
         } else {
@@ -82,7 +80,18 @@ class Create extends Component
 
     public function save()
     {
+
+        
+        
         if (!auth()->check()) {
+
+            $this->validate(
+                [
+                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                    'password' => ['required', 'confirmed'],
+                    'name_of_user' => ['required', 'string', 'max:255'],
+                ]
+            );
             $userData = [
                 'name' =>  $this->name_of_user,
                 'email' => $this->email,
@@ -91,8 +100,9 @@ class Create extends Component
             ];
             $user = $this->createUser($userData);
             Auth::attempt(['email' => $this->email, 'password' => $this->password]);
-           
         }
+
+        $this->validate();
 
         $project = Project::create([
             'name' => $this->name,
@@ -105,6 +115,7 @@ class Create extends Component
             'description' => $this->description,
             'urgency' => $this->urgency
         ]);
+
 
 
         if ($this->purpose == 'Launch a New Website') {
@@ -125,6 +136,21 @@ class Create extends Component
             $project->extent_of_redesign = $this->extent_of_redesign;
         }
         $project->save();
+
+        
+        Notification::new([
+        'name' => 'New Project',
+        'message' => auth()->user()->name.' Is Intrested in one of our services',
+        'type' => null,
+        'user_id' => null,
+        'team_id' => 1,
+        'from' => auth()->user()->id,
+        'link'=>url('projects/' . $project->id),
+        'seen'=>'false',
+        'project'=>$project, 
+        'user'=>auth()->user(),
+        'to'=>Team::find(1)->users
+        ]);
         return redirect()->to(url('projects/' . $project->id));
     }
 
@@ -153,7 +179,7 @@ class Create extends Component
      */
     protected function createTeam(User $user)
     {
-        $user->ownedTeams()->save( Team::forceCreate([
+        $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
             'name' => explode(' ', $user->name, 2)[0] . "'s Team",
             'personal_team' => true,

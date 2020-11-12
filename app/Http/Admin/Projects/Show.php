@@ -45,6 +45,11 @@ class Show extends Component
         return redirect()->to(url('projects'));
     }
 
+    public function refresh()
+    {
+        $this->reset('search');
+    }
+
     //Comment
     public function newComment()
     {

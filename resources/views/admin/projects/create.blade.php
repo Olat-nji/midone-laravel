@@ -36,8 +36,8 @@
                 <template x-if="step === 2">
                     <div class="text-gray-600 text-center mt-2">Tell Us More About '{{$name}}'</div>
                 </template>
-                <template x-if="step === 2">
-                    <div class="text-gray-600 text-center mt-2">Ansawer These Last Questions</div>
+                <template x-if="step === 3">
+                    <div class="text-gray-600 text-center mt-2">Answer These Last Questions</div>
                 </template>
             </div>
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 1">
@@ -63,6 +63,13 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 2">
 
                 <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
@@ -137,6 +144,19 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 3">
 
                 <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
@@ -197,19 +217,25 @@
                     @if(!Auth::check())
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <div class="mb-2">Your Password</div>
-                        <input  class="input w-full border flex-1" type="password" wire:model="password">
+                        <input class="input w-full border flex-1" type="password" wire:model="password">
                         @error('password')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
                     </div>
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <div class="mb-2">Confirm Your Password</div>
-                        <input  class="input w-full border flex-1" type="password" wire:model="password_confirmation">
+                        <input class="input w-full border flex-1" type="password" wire:model="password_confirmation">
                     </div>
                     @endif
 
 
                     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
-                        <button type="button" class="button w-24 justify-center block bg-theme-1 text-white ml-2" @click="step = 1">Previous</button>
+                        <button type="button" class="button w-24 justify-center block bg-theme-1 text-white ml-2" @click="step = 2">Previous</button>
                         <button class="button w-24 justify-center block bg-theme-1 text-white ml-2" type="submit">Finish</button>
+                        @error('hi')<div class="text-theme-6 mt-2">{{$error}}</div> @enderror
+                        @if(count($errors)>0)
+                        @foreach($errors as $key => $error)
+                        <div class="text-theme-6 mt-2">{{$error}}</div>
+                        @endforeach
+                        @endisset
                     </div>
                 </div>
             </div>

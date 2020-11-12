@@ -3,6 +3,7 @@
 namespace App\Http\Main;
 
 use App\Models\Contact as ModelsContact;
+use App\Models\Notification;
 use Livewire\Component;
 
 class Contact extends Component
@@ -35,6 +36,19 @@ class Contact extends Component
             'subject' =>$this->subject,
             'message' => $this->message
         ]);
+        // Notification::new([
+        //     'name' => 'New Project',
+        //     'message' => auth()->user()->name.' Is Intrested in one of our services',
+        //     'type' => null,
+        //     'user_id' => null,
+        //     'team_id' => 1,
+        //     'from' => auth()->user()->id,
+        //     'link'=>url('projects/' . $project->id),
+        //     'seen'=>'false',
+        //     'project'=>$project, 
+        //     'user'=>auth()->user(),
+        //     'to'=>Team::find(1)->users
+        //     ]);
         $this->emit('saved');
     }
 

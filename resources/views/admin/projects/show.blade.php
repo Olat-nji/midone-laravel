@@ -22,8 +22,10 @@
             @endif
 
         </div>
+
+        
         <div class="intro-y flex relative pt-16 sm:pt-6 items-center pb-6">
-            <a href="" class="intro-x w-8 h-8 sm:w-10 sm:h-10 flex flex-none items-center justify-center rounded-full border border-gray-500 dark:border-dark-5 dark:bg-dark-5 dark:text-gray-300 text-gray-600 mr-3 tooltip" title="Bookmark"> <i data-feather="bookmark" class="w-3 h-3"></i> </a>
+            
 
             <div class="absolute sm:relative -mt-12 sm:mt-0 w-full flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm">
                 <div class="intro-x mr-1 sm:mr-3"> Budget: <span class="font-medium">₦{{number_format($project->budget)}}</span> </div>
@@ -31,12 +33,7 @@
                 <div class="intro-x mr-1 sm:mr-3"> Start Project: <span class="font-medium">{{$project->urgency}}</span> </div>@endif
                 <div class="intro-x sm:mr-3 ml-auto"> Progress: <span class="font-medium">{{$project->progress}}%</span> </div>
             </div>
-            <a href="" class="intro-x w-8 h-8 sm:w-10 sm:h-10 flex flex-none items-center justify-center rounded-full bg-theme-14 dark:bg-dark-5 dark:text-gray-300 text-theme-10 ml-auto sm:ml-0 tooltip" title="Progress"> <i data-feather="refresh-ccw" class="w-3 h-3"></i> </a>
-
-
-
-
-
+            
         </div>
         <div class="intro-y text-justify leading-relaxed">
             <p class="mb-5">Purpose : {{$project->purpose}} @if($project->purpose=='Launch a New Website')
@@ -64,17 +61,14 @@
         </div>
 
         <div class="intro-y mt-5 pt-5 border-t border-gray-200 dark:border-dark-5">
-            <div class="text-base sm:text-lg font-medium" wire:poll>{{$comments->count()}} Responses</div>
+            <div class="text-base sm:text-lg font-medium" wire:poll="$refresh">{{$comments->count()}} Responses</div>
             <div class="news__input relative mt-5">
-                <i data-feather="message-circle" class="w-5 h-5 absolute my-auto inset-y-0 ml-6 left-0 text-gray-600"></i>
                 <form wire:submit.prevent="newComment">
-                    <textarea class="input w-full bg-gray-200 pl-16 py-6 placeholder-theme-13 resize-none" rows="1" placeholder="Post a comment..." wire:model.defer="comment"></textarea>
-
-
+                    <textarea class="input w-full bg-gray-200 pl-10 py-6 placeholder-theme-13 resize-none" rows="1" placeholder="Post a comment..." wire:model.defer="comment"></textarea>
                     <div class="mt-2 flex items-center">
                         @error('comment')<a class="text-theme-6 text-left pl-2">{{$message}}</a>@enderror
                         <div class="text-right lg:text-right  ml-auto flex items-center">
-                            <button class="button button--md text-white bg-theme-1" wire:loading.remove wire:target="newComment" type="submit">Post</button>
+                            <button class="button button--md text-white bg-theme-1" type="submit" wire:loading.remove wire:target="newComment" type="submit">Post</button>
                             <button class="button button--md text-white bg-theme-1 bg-opacity-50" wire:loading wire:target="newComment">Posting ...</button>
 
                         </div>
@@ -82,7 +76,7 @@
                 </form>
             </div>
         </div>
-        <div class="intro-y mt-20 pb-10" wire:poll>
+        <div class="intro-y mt-20 pb-10" wire:poll="$refresh">
             @foreach($comments as $key => $comment)
             <div class="mt-5 pt-5 border-t border-gray-200 dark:border-dark-5">
                 <div class="flex">

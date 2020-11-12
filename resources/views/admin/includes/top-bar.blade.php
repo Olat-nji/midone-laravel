@@ -118,75 +118,37 @@
     </div>
     @if(Auth::check())
     <div class="intro-x dropdown mr-auto sm:mr-6">
-        <div class="dropdown-toggle notification notification--bullet cursor-pointer"> <i data-feather="bell" class="notification__icon dark:text-gray-300"></i> </div>
+        <div class="dropdown-toggle notification @if(count($notifications)>0)notification--bullet @endif cursor-pointer"> <i data-feather="bell" class="notification__icon dark:text-gray-300"></i> </div>
         <div class="notification-content pt-2 dropdown-box">
             <div class="notification-content__box dropdown-box__content box dark:bg-dark-6">
                 <div class="notification-content__title">Notifications</div>
-                <div class="cursor-pointer relative flex items-center ">
+
+             
+                @forelse($notifications as $notification)
+                <div class="cursor-pointer relative flex items-center mt-5" wire:click="viewNotification('{{$notification->id}}')">
                     <div class="w-12 h-12 flex-none image-fit mr-1">
-                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-4.jpg')}}">
-                        <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
+                        <img alt="{{$notification->fromUser->name}}" class="rounded-full" src="{{$notification->fromUser->profile_photo_url}}">
+                        @if(Cache::has('user-is-online-' . $notification->fromUser->id))<div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>@endif
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">John Travolta</a>
-                            <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">05:09 AM</div>
+                            <a href="javascript:;" class="font-medium truncate mr-5">{{$notification->name}} </a>
+                            <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">{{$notification->created_at->diffForHumans()}}</div>
                         </div>
-                        <div class="w-full truncate text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500</div>
+                        <div class="w-full truncate text-gray-600">{{$notification->message}}</div>
                     </div>
                 </div>
-                <div class="cursor-pointer relative flex items-center mt-5">
-                    <div class="w-12 h-12 flex-none image-fit mr-1">
-                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-11.jpg')}}">
-                        <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
-                    </div>
+                @empty
+                <div class="cursor-pointer relative flex items-center mt-5" >
+                   
                     <div class="ml-2 overflow-hidden">
-                        <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Tom Cruise</a>
-                            <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">03:20 PM</div>
-                        </div>
-                        <div class="w-full truncate text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500</div>
+                        
+                        <div class="w-full truncate text-gray-600">No New Notification ...</div>
                     </div>
                 </div>
-                <div class="cursor-pointer relative flex items-center mt-5">
-                    <div class="w-12 h-12 flex-none image-fit mr-1">
-                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-6.jpg')}}">
-                        <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
-                    </div>
-                    <div class="ml-2 overflow-hidden">
-                        <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">John Travolta</a>
-                            <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">06:05 AM</div>
-                        </div>
-                        <div class="w-full truncate text-gray-600">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 20</div>
-                    </div>
-                </div>
-                <div class="cursor-pointer relative flex items-center mt-5">
-                    <div class="w-12 h-12 flex-none image-fit mr-1">
-                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-13.jpg')}}">
-                        <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
-                    </div>
-                    <div class="ml-2 overflow-hidden">
-                        <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Tom Cruise</a>
-                            <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">05:09 AM</div>
-                        </div>
-                        <div class="w-full truncate text-gray-600">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500</div>
-                    </div>
-                </div>
-                <div class="cursor-pointer relative flex items-center mt-5">
-                    <div class="w-12 h-12 flex-none image-fit mr-1">
-                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('midone/dist/images/profile-5.jpg')}}">
-                        <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
-                    </div>
-                    <div class="ml-2 overflow-hidden">
-                        <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Kevin Spacey</a>
-                            <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">01:10 PM</div>
-                        </div>
-                        <div class="w-full truncate text-gray-600">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomi</div>
-                    </div>
-                </div>
+                @endforelse
+                
+                
             </div>
         </div>
     </div>
