@@ -24,6 +24,7 @@ class Index extends Component
     public function render()
     {
 
+        
         return view('admin.projects.index',[
             'projects'=>Project::where('name', 'like', '%'.$this->q.'%')->paginate($this->pages),
         ])->layout('admin.layouts.app');

@@ -3,8 +3,8 @@
         <!-- Menu For Mobile Device -->
         <div class="mobile-nav" style="background-color:white">
             <a href="{{url('/')}}" class="logo">
-            {{-- <img class="w-3" style="width:70%; margin-top:-7px" src="{{url('public/img/apple-touch-icon.png')}}" alt="Logo">  --}}
-                </a>
+                {{-- <img class="w-3" style="width:70%; margin-top:-7px" src="{{url('public/img/apple-touch-icon.png')}}" alt="Logo"> --}}
+            </a>
         </div>
 
         <!-- Menu For Desktop Device -->
@@ -12,7 +12,8 @@
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="{{url('/')}}">
-                       <img src="{{asset('public/img/just-logo.png')}}" alt="Logo"></a>
+                        <img src="{{asset('public/img/just-logo.png')}}" alt="Logo">
+                    </a>
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -34,14 +35,14 @@
                                 <a href="{{url('portfolio')}}" class="nav-link @if(request()->routeIs('portfolio')) active @endif">Portfolio</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url('contact')}}" class="nav-link @if(request()->routeIs('contact')) active @endif" >Contact</a>
+                                <a href="{{url('contact')}}" class="nav-link @if(request()->routeIs('contact')) active @endif">Contact</a>
                             </li>
 
                         </ul>
                         <div class="side-nav">
                             @if(Auth::check())
                             <a class="left-btn" data-turbolinks="false" href="{{url('login')}}">
-                                <i class="bx bx-log-in" ></i> Dashboard
+                                <i class="bx bx-log-in"></i> Dashboard
                             </a>
                             @else
                             <a class="left-btn" href="{{url('login')}}">

@@ -16,7 +16,7 @@
                 <div class="container-fluid">
                     <div class="banner-content">
 
-                        <span> <img src="{{ asset('public/img/apple-touch-icon.png')}}" alt="logo"> SKYLEVEL-CONCEPTS</span>
+                        <span class="d-lg-none d-sm-inline"> <img src="{{ asset('public/img/apple-touch-icon.png')}}" alt="logo" class=""> SKYLEVEL CONCEPTS</span>
                         <h1>WELCOME</h1>
                         <p>Everyone has a reason to work with technology.<br>We stand as a link between you and the tech world!</p>
                         <div class="banner-btn">

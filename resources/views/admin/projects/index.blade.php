@@ -20,7 +20,7 @@
         <div class="intro-y col-span-12 lg:col-span-12">
             <div class="lg:flex intro-y">
                 <div class="relative text-gray-700 dark:text-gray-300">
-                    <input type="text" class="input input--lg w-full lg:w-64 box pr-10 placeholder-theme-13" placeholder="Search item...">
+                    <input type="text" class="input input--lg w-full lg:w-64 box pr-10 placeholder-theme-13" placeholder="Search Projects..." wire:model.lazy="q">
                     <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
                 </div>
                 <select class="input input--lg box w-full lg:w-auto mt-3 lg:mt-0 ml-auto">
@@ -40,9 +40,23 @@
         <!-- END: Ticket -->
     </div>
 
-    <div class=" text-center md:block mx-auto text-gray-600 mt-5">{{$projects->links('admin.components/showing')}}</div>
+    @if(count($projects)!=0) <div class=" text-center md:block mx-auto text-gray-600 mt-5">{{$projects->links('admin.components/showing')}}</div> @endif
     <div class="intro-y grid grid-cols-12 gap-6 mt-5">
         <!-- BEGIN: Blog Layout -->
+
+        @if(count($projects)==0)
+        <div class="col-span-12 text-center pt-5" wire:loading.remove>
+            No Results Found ...
+        </div>
+        @endif
+
+        {{-- Loading Icon --}}
+        <div class="col-span-12 text-center p-10 flex justify-center ">
+            <div wire:loading>
+                <i data-loading-icon="three-dots" class=" w-8 h-8" ></i>
+            </div>
+        </div>
+
 
         @foreach($projects as $key => $project)
         <div class="intro-y col-span-12 md:col-span-6 xl:col-span-4 box">
@@ -89,6 +103,7 @@
 
         <!-- END: Blog Layout -->
         <!-- BEGIN: Pagination -->
+        @if(count($projects)!=0)
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-no-wrap items-center">
             {{$projects->links('admin.components.pagination')}}
 
@@ -99,6 +114,7 @@
                 <option>100</option>
             </select>
         </div>
+        @endif
         <!-- END: Pagination -->
     </div>
 
