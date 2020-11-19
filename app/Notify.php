@@ -14,3 +14,12 @@ function newNotification($name, $message, $type,$user_id, $team_id)
     ]]);
     return true;
 }
+
+function is_admin(){
+    if(auth()->user()->CurrentTeam->id==1 || auth()->user()->CurrentTeam->id==2){
+        return true;
+    }else{
+        return false;
+    }
+    
+}

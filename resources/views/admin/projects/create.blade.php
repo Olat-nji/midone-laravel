@@ -49,11 +49,23 @@
                     </div>
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">What do you want to do?</div>
+                        <select class="input w-full border flex-1" wire:model="mainpurpose">
+                            <option selected>Web Development</option>
+                            <option>Mobile App Development</option>
+                            <option>Digital Marketing</option>
+                            <option>Data Analysis</option>
+                            <option>Desktop App Development</option>
+                        </select>
+                    </div>
+                    @if($mainpurpose=='Web Development')
+                    <div class="intro-y col-span-12 sm:col-span-12">
+                        <div class="mb-2">What do you want to do?</div>
                         <select class="input w-full border flex-1" wire:model="purpose">
                             <option>Launch a New Website</option>
                             <option>Redesign an Old Website</option>
                         </select>
                     </div>
+                    @endif
                     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
                         <button type="button" class="button w-24 justify-center block bg-gray-200 text-gray-600 dark:bg-dark-1 dark:text-gray-300">Previous</button>
                         @if($name==null)
@@ -61,6 +73,7 @@
                         <button type="button" class="button w-24 justify-center block bg-theme-1 text-white ml-2" @click="step = 2">Next</button>
                         @endif
                     </div>
+                    
                 </div>
             </div>
 
@@ -73,6 +86,7 @@
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 2">
 
                 <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
+                @if($mainpurpose=='Web Development')
                     @if($purpose=='Redesign an Old Website')
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">What Is The Extent Of The Redesign</div>
@@ -127,6 +141,9 @@
 
 
                     @endif
+                    @endif
+                    
+                    
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Give Us a Brief Description of What You Want </div>
                         <textarea class="input w-full border @error('description')border-theme-6 @enderror mt-2" row="30" wire:model="description"></textarea>
@@ -180,6 +197,7 @@
                         @error('urgency')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
 
                     </div>
+                    @if($mainpurpose=='Web Development')
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Are There Any Similar Websites That You like?</div>
                         <div class="flex items-center text-gray-700 dark:text-gray-500 mt-2"> <input type="radio" wire:model="similar" class="input border mr-2" id="vertical-radio-chris-evans" name="vertical_radio_button" value="Yes"> <label class="cursor-pointer select-none" for="vertical-radio-chris-evans">Yes</label> </div>
@@ -190,12 +208,14 @@
                     @if($similar=='No')
 
                     @else
+                    
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">What Are The Website Addresses Of These Website(s)? </div>
                         <textarea class="input w-full border @error('similar_websites')border-theme-6 @enderror mt-2" wire:model="similar_websites"></textarea>
                         @error('similar_websites')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
 
                     </div>
+                    @endif
                     @endif
                     @if(!Auth::check())
                     <div class="intro-y col-span-12 sm:col-span-12">

@@ -3,11 +3,11 @@
 <div>
     @section("header")
         
-          <a href="" class="breadcrumb--active">  {{ __('Dashboard') }}</a>
+          <a href="" class="breadcrumb--active">  {{ __('Dashboard') }} </a>
         
     @endsection
 
-@if(Auth::user()->currentTeam->id==1)
+@if(is_admin())
 {{-- <x-welcome /> --}}
 @include('components.welcome')
 @else

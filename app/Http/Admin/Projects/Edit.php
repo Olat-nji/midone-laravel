@@ -35,8 +35,7 @@ class Edit extends Component
 
     public function mount(Project $project)
     {
-        $this->email = auth()->user()->email;
-        $this->phone = auth()->user()->phone;
+        
         $this->name = $this->project->name;
         $this->purpose = $this->project->purpose;
         $this->ecommerce = $this->project->ecommerce;
@@ -50,7 +49,8 @@ class Edit extends Component
         $this->urgency = $this->project->urgency;
         $this->website_url = $this->project->website_url;
         $this->extent_of_redesign = $this->project->extent_of_redesign;
-        
+        $this->email = User::find($this->project->user_id)->email;
+        $this->phone = User::find($this->project->user_id)->phone;
         $this->project=$project;
     }
     public function updated($propertyName)
@@ -64,8 +64,6 @@ class Edit extends Component
         $project = Project::find($this->project->id);
         $project->fill([
             'name' => $this->name,
-            'team_id' => auth()->user()->CurrentTeam->id,
-            'user_id' => auth()->user()->id,
             'budget' => $this->budget,
             'status' => $this->status,
             'purpose' => $this->purpose,

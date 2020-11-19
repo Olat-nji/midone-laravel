@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Skylevel&mdash;Concepts</title>
+    <title>Software Development Company In Lagos</title>
 
     <meta name="keyword" content="sky, skylevel, skylevel-concepts, conepts, concpets,Fiyin,samuel, ogunsola samuel, ogunsola samuel fiyin, ogunsola fiyinfoluwa samuel, Damilola, level, concept, concepts, skylevelconcepts, fiyinfoluwa, ogunsola, phyyeen001, phyyeen, blog, websitedesgin, marketing, cheap website design, free website design, unilag, lasu, ui, bbn, bet9ja, bb9ja, bbnigeria, happynewyear, ikeja lagos, company in ikeja, website company, 2020" />
     <meta name="description" content="Skylevel-Concepts is a Nigeria based IT company, where creative minds provide solutions and help to move businesses to the next level. We are built on a great level of integrity, principle and excellence out put." />
@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{asset('public/css/main.css')}}">
     <script src="{{ asset('public/js/app.js') }}" defer></script>
     <script src="{{ asset('public/js/alpine.js') }}" defer></script>
+    
+    
 
     <title>SkyLevel Concepts</title>
     @livewireStyles
@@ -48,6 +50,7 @@
 
     @include('main.includes.footer')
     <script src="public/js/main.js"></script>
+    
     <script type="text/javascript">
         (function() {
             var options = {

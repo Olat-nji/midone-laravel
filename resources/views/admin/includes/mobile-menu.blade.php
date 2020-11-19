@@ -64,7 +64,7 @@
                     <div class="menu__title " :class="{ 'text-gray-800': !dark }" :class="{ 'text-gray-200': dark }"> Dashboard </div>
                 </a>
             </li>
-            @if(auth()->user()->CurrentTeam->id==1)
+            @if(is_admin())
             <li>
                 <a href="{{url('projects')}}" class="menu  @if(request()->routeIs('projects')) menu--active @endif">
                     <div class="menu__icon " :class="{ 'text-gray-800': !dark }" :class="{ 'text-gray-200': dark }"> <i data-feather="box"></i> </div>
@@ -85,7 +85,7 @@
                     <div class="menu__title " :class="{ 'text-gray-800': !dark }" :class="{ 'text-gray-200': dark }"> Live Chat</div>
                 </a>
             </li>
-            @if(auth()->user()->CurrentTeam->id==1)
+            @if(is_admin())
             <li>
                 <a href="{{url('users')}}" class="menu  @if(request()->routeIs('users')) menu--active @endif">
                     <div class="menu__icon " :class="{ 'text-gray-800': !dark }" :class="{ 'text-gray-200': dark }"> <i data-feather="users"></i> </div>

@@ -35,11 +35,13 @@
             </div>
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 1">
                 <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
+                    
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Company / Organization / Project</div>
                         <input type="text" class="input w-full border flex-1 @error('name')border-theme-6 @enderror" placeholder="Laser Limited" wire:model="name">
                         @error('name')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
                     </div>
+                    @if($project->isNotWeb)
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">What do you want to do?</div>
                         <select class="input w-full border flex-1" wire:model="purpose">
@@ -47,7 +49,8 @@
                             <option>Redesign an Old Website</option>
                         </select>
                     </div>
-                    @if(auth()->user()->CurrentTeam->id==1)
+                    @endif
+                    @if(is_admin())
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Status</div>
                         <select class="input w-full border flex-1" wire:model="status">
@@ -62,7 +65,7 @@
                     <div class="intro-y col-span-12 flex items-center  mt-5">
                         <div class=" flex items-center">
                             <a class="button w-24 justify-center block bg-red-500 text-white " href="{{url('projects/'.$project->id)}}">Cancel</a>
-                            
+
                         </div>
                         <div class="ml-auto flex items-center">
                             <button type="button" class="button w-24 justify-center block bg-gray-200 text-gray-600 dark:bg-dark-1 dark:text-gray-300">Previous</button>
@@ -77,6 +80,7 @@
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 2">
 
                 <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
+                @if($project->isNotWeb)
                     @if($purpose=='Redesign an Old Website')
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">What Is The Extent Of The Redesign</div>
@@ -131,6 +135,7 @@
 
 
                     @endif
+                    @endif
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Give Us a Brief Description of What You Want </div>
                         <textarea class="input w-full border @error('description')border-theme-6 @enderror mt-2" row="30" wire:model="description"></textarea>
@@ -142,7 +147,7 @@
                     <div class="intro-y col-span-12 flex items-center  mt-5">
                         <div class=" flex items-center">
                             <a class="button w-24 justify-center block bg-red-500 text-white " href="{{url('projects/'.$project->id)}}">Cancel</a>
-                            
+
                         </div>
                         <div class="ml-auto flex items-center">
                             <button type="button" class="button w-24 justify-center block bg-theme-1 text-white " @click="step = 1">Previous</button>
@@ -157,7 +162,7 @@
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5" x-show="step === 3">
 
                 <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                    @if(auth()->user()->CurrentTeam->id==1)
+                    @if(is_admin())
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">What is Your Approximate Budget For this Project (₦)?</div>
 
@@ -179,6 +184,7 @@
                         @error('urgency')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
 
                     </div>
+                    @if($project->isNotWeb)
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Are There Any Similar Websites That You like?</div>
                         <div class="flex items-center text-gray-700 dark:text-gray-500 mt-2"> <input type="radio" wire:model="similar" class="input border mr-2" id="vertical-radio-chris-evans" name="vertical_radio_button" value="Yes"> <label class="cursor-pointer select-none" for="vertical-radio-chris-evans">Yes</label> </div>
@@ -195,6 +201,7 @@
                         @error('similar_websites')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
 
                     </div>
+                    @endif
                     @endif
                     <div class="intro-y col-span-12 sm:col-span-12">
                         <div class="mb-2">Your Email Address</div>

@@ -3,15 +3,25 @@
 
     <ul class="pagination">
         @if ($paginator->onFirstPage())
-        @if(!isset($prev))
+         @if(!isset($prev))
         <li>
-            <a class="pagination__link" aria-label="{!! __('pagination.previous') !!}"> {!!$prev?? '<i class="w-4 h-4" data-feather="chevrons-left"></i>'!!}</a>
+            <a  class="pagination__link" aria-label="{!! __('pagination.previous') !!}"> {!!$prev?? '<i class="w-4 h-4" data-feather="chevrons-left"></i>'!!}</a>
         </li>
         @endif
         <li>
             <a class="pagination__link" aria-label="{!! __('pagination.previous') !!}"> {!!$prev?? '<i class="w-4 h-4" data-feather="chevron-left"></i>'!!} </a>
         </li>
+        @else
+        @if(!isset($prev))
+        <li>
+            <a wire:click="prevPage" class="pagination__link" aria-label="{!! __('pagination.previous') !!}"> {!!$prev?? '<i class="w-4 h-4" data-feather="chevrons-left"></i>'!!}</a>
+        </li>
         @endif
+        <li>
+            <a wire:click="prevPage" class="pagination__link" aria-label="{!! __('pagination.previous') !!}"> {!!$prev?? '<i class="w-4 h-4" data-feather="chevron-left"></i>'!!} </a>
+        </li>
+        @endif
+        
         @foreach ($elements as $element)
         @if (is_string($element))
         <li> <a class="pagination__link" href="">{!!$element!!}</a> </li>
@@ -33,7 +43,8 @@
         @endforeach
         @endif
         @endforeach
-        @if ($paginator->hasMorePages())
+        
+          @if ($paginator->hasMorePages())
         @if(!isset($prev))
         <li>
             <a class="pagination__link" wire:click="nextPage" dusk="nextPage.before" aria-label="{!! __('pagination.next') !!}"> {!!$next?? '<i class="w-4 h-4" data-feather="chevron-right"></i>'!!} </a>
@@ -42,7 +53,17 @@
         <li>
             <a class="pagination__link" wire:click="nextPage" dusk="nextPage.before" aria-label="{!! __('pagination.next') !!}"> {!!$next?? '<i class="w-4 h-4" data-feather="chevrons-right"></i>'!!} </a>
         </li>
+        @else
+        @if(!isset($prev))
+        <li>
+            <a class="pagination__link"  aria-label="{!! __('pagination.next') !!}"> {!!$next?? '<i class="w-4 h-4" data-feather="chevron-right"></i>'!!} </a>
+        </li>
         @endif
+        <li>
+            <a class="pagination__link"   aria-label="{!! __('pagination.next') !!}"> {!!$next?? '<i class="w-4 h-4" data-feather="chevrons-right"></i>'!!} </a>
+        </li>
+        @endif
+        
 
 
 

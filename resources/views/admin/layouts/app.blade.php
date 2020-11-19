@@ -13,9 +13,9 @@
     {{-- <link rel="stylesheet" href="{{asset('public/plugins/summernote/summernote-bs4.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/editor.css')}}"> --}}
 
-    <link rel="stylesheet" href="{{ asset('public/midone/dist/css/app.css') }}">    
+    <link rel="stylesheet" href="{{ asset('public/midone/dist/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('public/plugins/fontawesome-free/css/all.min.css') }}">
-    
+
     @livewireStyles
     @livewireScripts
     <script src="{{ asset('public/js/app.js') }}" defer></script>
@@ -55,13 +55,26 @@
 
 
         @yield('modals')
-    <script src="{{ asset('public/midone/dist/js/app.js')}}" ></script>
-    {{-- <script src="{{asset('public/plugins/jquery/jquery.min.js')}}"></script>
+        <script src="{{ asset('public/midone/dist/js/app.js')}}"></script>
+        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> --}}
+        <script src="{{asset('public/plugins/jquery/jquery.min.js')}}"></script>
+        <script src="{{ asset('public/js/jquery.hideseek.min.js') }}" defer></script>
+        <script>
+            $(document).ready(function() {
+                $('#search-highlight').hideseek({
+                    highlight: true
+                    , nodata: 'No results found'
+                    , headers: '.search-result__content__title'
+                });
+            });
+
+        </script>
+        {{--
     <script src="{{asset('public/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('public/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('public/plugins/summernote/summernote-bs4.min.js')}}"></script>  --}}
-   
-    {{-- <script>
+        <script src="{{asset('public/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ asset('public/plugins/summernote/summernote-bs4.min.js')}}"></script> --}}
+
+        {{-- <script>
     $('.editor').summernote();
     </script> --}}
 </body>

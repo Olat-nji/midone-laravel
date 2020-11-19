@@ -35,6 +35,7 @@ class Create extends Component
 
     public $name;
     public $purpose = 'Launch a New Website';
+    public $mainpurpose = 'Web Development';
     public $ecommerce = 'No';
     public $vendors = 'No';
     public $no_of_products = '1-50';
@@ -49,8 +50,8 @@ class Create extends Component
         'name' => 'required',
         'description' => 'required',
         'budget' => 'required|integer',
-        
-        ];
+
+    ];
 
     public function mount()
     {
@@ -81,8 +82,8 @@ class Create extends Component
     public function save()
     {
 
-        
-        
+
+
         if (!auth()->check()) {
 
             $this->validate(
@@ -110,46 +111,48 @@ class Create extends Component
             'user_id' => auth()->user()->id,
             'budget' => $this->budget,
             'status' => 'Unanswered',
-            'purpose' => $this->purpose,
             'progress' => 0,
             'description' => $this->description,
             'urgency' => $this->urgency
         ]);
 
 
+        if ($this->mainpurpose == 'Web Development') {
+            $project->purpose = $this->purpose;
+            if ($this->purpose == 'Launch a New Website') {
+                if ($this->ecommerce != 'No') {
 
-        if ($this->purpose == 'Launch a New Website') {
-            if ($this->ecommerce != 'No') {
+                    $project->no_of_products = $this->no_of_products;
+                    $project->vendors = $this->vendors;
+                }
+                $project->ecommerce = $this->ecommerce;
+                $project->similar = $this->similar;
+                if ($this->similar != 'No') {
 
-
-                $project->no_of_products = $this->no_of_products;
-                $project->vendors = $this->vendors;
-            }
-            $project->ecommerce = $this->ecommerce;
-            $project->similar = $this->similar;
-            if ($this->similar != 'No') {
-
-                $project->similar_websites = $this->similar_websites;
+                    $project->similar_websites = $this->similar_websites;
+                }
+            } else {
+                $project->website_url = $this->website_url;
+                $project->extent_of_redesign = $this->extent_of_redesign;
             }
         } else {
-            $project->website_url = $this->website_url;
-            $project->extent_of_redesign = $this->extent_of_redesign;
+            $project->purpose = $this->mainpurpose;
         }
-        $project->save();
 
-        
+
+        $project->save();
         Notification::new([
-        'name' => 'New Project',
-        'message' => auth()->user()->name.' Is Intrested in one of our services',
-        'type' => null,
-        'user_id' => null,
-        'team_id' => 1,
-        'from' => auth()->user()->id,
-        'link'=>url('projects/' . $project->id),
-        'seen'=>'false',
-        'project'=>$project, 
-        'user'=>auth()->user(),
-        'to'=>Team::find(1)->users
+            'name' => 'New Project From ' . auth()->user()->name,
+            'message' => auth()->user()->name . ' Is Intrested in ' . $this->mainpurpose,
+            'type' => null,
+            'user_id' => null,
+            'team_id' => 1,
+            'from' => auth()->user()->id,
+            'link' => url('projects/' . $project->id),
+            'seen' => 'false',
+            'project' => $project,
+            'user' => auth()->user(),
+            'to' => Team::find(1)->users->merge(Team::find(2)->users)
         ]);
         return redirect()->to(url('projects/' . $project->id));
     }

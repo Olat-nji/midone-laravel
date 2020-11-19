@@ -7,19 +7,19 @@
     <div class="border-opacity-25 border-gray-600 border b-t-0 my-6" style="border-top:0.5px;"></div>
     <ul>
         <li>
-            <a href="{{url('/')}}" data-turbolinks="false"  class="side-menu">
+            <a href="{{url('/')}}" data-turbolinks="false" class="side-menu">
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__icon text-gray-800  "> <i data-feather="home"></i> </div>
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__title text-gray-800  "> Back to Home Page </div>
             </a>
         </li>
-        
+
         <li>
             <a href="{{url('projects')}}" class="side-menu @if(request()->routeIs('projects')) side-menu--active @endif">
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__icon text-gray-800  "> <i data-feather="box"></i> </div>
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__title text-gray-800  ">Your Projects</div>
             </a>
         </li>
-        
+
 
         <li>
             <a href="{{url('chat')}}" class="side-menu @if(request()->routeIs('live-chat')) side-menu--active @endif">
@@ -46,7 +46,7 @@
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__title text-gray-800  "> Dashboard </div>
             </a>
         </li>
-        @if(auth()->user()->CurrentTeam->id==1)
+        @if(is_admin())
         <li>
             <a href="{{url('projects')}}" class="side-menu @if(request()->routeIs('projects')) side-menu--active @endif">
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__icon text-gray-800  "> <i data-feather="box"></i> </div>
@@ -70,7 +70,7 @@
             </a>
         </li>
 
-        @if(auth()->user()->CurrentTeam->id==1)
+        @if(is_admin())
         <li>
             <a href="{{url('users')}}" class="side-menu @if(request()->routeIs('users')) side-menu--active @endif">
                 <div :class="{ 'text-gray-200': dark }" class="side-menu__icon text-gray-800  "> <i data-feather="users"></i> </div>

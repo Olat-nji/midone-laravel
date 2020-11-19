@@ -7,7 +7,7 @@
 
     @endsection
 
-    @if(Auth::user()->currentTeam->id==1)
+    @if(is_admin())
     <h2 class="intro-y text-lg font-medium mt-10">
         Users
     </h2>
@@ -23,6 +23,19 @@
                 </div>
             </div>
         </div>
+        @if(count($users)==0)
+        <div class="col-span-12 text-center pt-5" wire:loading.remove>
+            No Results Found ...
+        </div>
+        @endif
+
+        {{-- Loading Icon --}}
+        <div class="col-span-12 text-center flex justify-center " wire:loading.class="p-10">
+            <div wire:loading>
+                <i data-loading-icon="three-dots" class=" w-8 h-8"></i>
+            </div>
+        </div>
+
         @foreach($users as $key=>$user)
         <div class="intro-y col-span-12 md:col-span-6 lg:col-span-4">
             <div class="box">
@@ -54,12 +67,12 @@
                         @endif
                         @endforeach</div>
                     <div class="flex items-center justify-center lg:justify-start text-gray-600 mt-5"> <i data-feather="mail" class="w-3 h-3 mr-2"></i>{{$user->email}}</div>
-                    <div class="flex items-center justify-center lg:justify-start text-gray-600 mt-5"> <i data-feather="phone" class="w-3 h-3 mr-2"></i>{{$user->phone}}</div>
+                    @if($user->phone!=null)<div class="flex items-center justify-center lg:justify-start text-gray-600 mt-5"> <i data-feather="phone" class="w-3 h-3 mr-2"></i>{{$user->phone}}</div>@endif
 
                 </div>
                 <div class="text-center lg:text-right p-5 border-t border-gray-200 dark:border-dark-5">
                     <a href="{{url('chat?user='.$user->id)}}" class="button button--sm text-white bg-theme-1 mr-2">Message</a>
-                    <a class="button button--sm text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300">Projects</a>
+                    <a href="{{url('projects?user='.$user->id)}}" class="button button--sm text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300">Projects</a>
                 </div>
             </div>
         </div>
@@ -86,69 +99,6 @@
 
 
 
-    @section('scripts')
-    <script>
-        // var tour = new Tour({
-        //     name: "{{ Str::uuid() }}",
-
-        //     backdrop: true,
-        //   steps: [
-
-
-        //   {
-        //     element: "#tour1",
-        //    title:'Welcome' ,
-
-        //     content: "You can directly view your stats here"
-        //   }
-        // ],
-        // template:'@include('tailwind-components.tour-modal')',
-        // onStart: function (tour) {
-        //     const body = document.querySelector('body')
-        //       const modal = document.querySelector('.modal')
-
-        //       body.classList.toggle('modal-active')
-        // },});
-
-        // // Initialize the tour
-        // tour.init();
-
-        // // Start the tour
-        // tour.start();
-
-        // var tou = new Tour({
-        //     name: "aslkds",
-        //     backdrop: true,
-        //   steps: [
-
-        //   {
-        //     element: "#profile",
-
-        //     title:'Profile',
-
-        //     content: "Manage settings like Personal details, Two factor authentication, Browser Sessions and also delete your account here"
-
-        //   }
-
-        // ],
-        // template:'@include('tailwind-components.tour-modal')'
-        // });
-
-        // // Initialize the tour
-        // tou.init();
-
-
-
-        // function startTour(){
-
-
-        // // Start the tour
-        //   tou.start();
-        //     };
-
-    </script>
-    @endsection
-
-
+    
 
 </div>

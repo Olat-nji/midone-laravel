@@ -23,24 +23,27 @@
 
         </div>
 
-        
+
         <div class="intro-y flex relative pt-16 sm:pt-6 items-center pb-6">
-            
+
 
             <div class="absolute sm:relative -mt-12 sm:mt-0 w-full flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm">
                 <div class="intro-x mr-1 sm:mr-3"> Budget: <span class="font-medium">₦{{number_format($project->budget)}}</span> </div>
-                @if(Auth::user()->CurrentTeam->id==1) <span class="mx-1">•</span>
+                @if(is_admin()) <span class="mx-1">•</span>
                 <div class="intro-x mr-1 sm:mr-3"> Start Project: <span class="font-medium">{{$project->urgency}}</span> </div>@endif
                 <div class="intro-x sm:mr-3 ml-auto"> Progress: <span class="font-medium">{{$project->progress}}%</span> </div>
             </div>
-            
+
         </div>
         <div class="intro-y text-justify leading-relaxed">
-            <p class="mb-5">Purpose : {{$project->purpose}} @if($project->purpose=='Launch a New Website')
+            <p class="mb-5">Purpose : {{$project->purpose}}
+
+                @if($project->purpose=='Launch a New Website')
                 @if($project->no_of_products!='') <span class="mx-1">•</span> Ecommerce : Yes <span class="mx-1">•</span> Number of Products : {{$project->no_of_products}} <span class="mx-1">•</span> Other Vendors : {{$project->vendors}} @endif
                 @else
-                <span class="mx-1">•</span> Extent of Redesign : {{$project->extent_of_redesign}} <span class="mx-1">•</span> Website Url : {{$project->website_url}}
+                @if($project->extent_of_redesign!='') <span class="mx-1">•</span> Extent of Redesign : {{$project->extent_of_redesign}} @endif @if($project->website_url!='')<span class="mx-1">•</span> Website Url : {{$project->website_url}} @endif
                 @endif
+
             </p>
             <p class="mb-5">{{$project->description}}</p>
         </div>

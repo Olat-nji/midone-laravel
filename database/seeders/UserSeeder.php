@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         $input =[
             'name' => 'Olayemi Olatunji',
                 'email' => 'olayemi289@gmail.com',
-                'password' => Hash::make('olayemi289@gmail.com')
+                'password' => '$2y$10$vyOCF.T0HLIEahoxuI1rjucSBFib74uJ0EEYkBpsIlmB4KfTPvgH6'
         ];
          DB::transaction(function () use ($input) {
              tap(User::create([
@@ -32,7 +32,21 @@ class UserSeeder extends Seeder
                 $this->createTeam($user);
             });
         });
-
+        $input =[
+            'name' => 'Ogunsola Fiyin',
+                'email' => 'phyyeensweb@yahoo.com',
+                'password' => '$2y$10$YcwW8zmpKsbA2L/0EL2YKOQVc2Yqgr33fKPgUl3rNuFk/4cDgvup.'
+        ];
+         DB::transaction(function () use ($input) {
+             tap(User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => $input['password'],
+            ]), function (User $user) {
+                $this->createTeam($user);
+            });
+        });
+        
     }
 
     /**

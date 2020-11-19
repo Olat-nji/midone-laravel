@@ -46,12 +46,12 @@
 
         @if(count($projects)==0)
         <div class="col-span-12 text-center pt-5" wire:loading.remove>
-            No Results Found ...
+            No Projects Found ...
         </div>
         @endif
 
         {{-- Loading Icon --}}
-        <div class="col-span-12 text-center p-10 flex justify-center ">
+        <div class="col-span-12 text-center  flex justify-center " wire:loading.class="p-10">
             <div wire:loading>
                 <i data-loading-icon="three-dots" class=" w-8 h-8" ></i>
             </div>
