@@ -4,6 +4,7 @@ namespace App\Http\Admin\Settings;
 
 use Livewire\Component;
 use App\Models\Portfolio;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 
 class EditPortfolio extends Component
@@ -41,10 +42,11 @@ class EditPortfolio extends Component
         $this->validate();
         if ($this->image != '') {
             $this->validate([
-                'image' => 'image|max:1024', // 1MB Max
+                'image' => 'image|max:2028', // 1MB Max
             ]);
+            
             $image = asset('public/storage/' . str_replace('public/', '', $this->image->store('public/portfolios')));
-
+            Storage::delete(str_replace('public/storage/', 'public/',$this->portfolio->image));
             $this->portfolio->image = $image;
         }
 
@@ -54,7 +56,7 @@ class EditPortfolio extends Component
 
     public function delete($id)
     {
-
+        Storage::delete(str_replace('public/storage/', 'public/',Portfolio::find($id)->image));
         Portfolio::find($id)->delete();
         return redirect()->to(url('settings/portfolios'));
     }
