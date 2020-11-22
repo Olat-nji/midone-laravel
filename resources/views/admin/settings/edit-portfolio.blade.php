@@ -47,18 +47,18 @@
 
                         <label>Image</label>
                         <div class="fallback">
-                            <div class="col-span-12 text-center  flex justify-center " wire:loading.class="p-10">
-                                <div wire:loading>
-                                    <i data-loading-icon="three-dots" class=" w-8 h-8"></i>
-                                </div>
-                            </div>
+
                             @if ($image)
                             Photo Preview:
                             <img class="w-40 p-3" src="{{ asset($image->temporaryUrl()) }}">
                             @else
                             <img class="w-40 p-3" src="{{asset($portfolio->image)}}">
                             @endif
-
+                            <div class="col-span-12 text-center  flex justify-center " wire:loading.class="p-10">
+                                <div wire:loading>
+                                    <i data-loading-icon="three-dots" class=" w-8 h-8"></i>
+                                </div>
+                            </div>
                             <input name="file" type="file" wire:model="image" />
                         </div>
                         @error('image')<div class="text-theme-6 mt-2">{{$message}}</div>@enderror
