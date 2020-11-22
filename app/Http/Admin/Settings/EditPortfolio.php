@@ -27,7 +27,7 @@ class EditPortfolio extends Component
     public function updatedImage($propertyName)
     {
         $this->validate([
-            'image' => 'image|max:1024', // 1MB Max
+            'image' => 'image|max:2028', // 2MB Max
         ]);
     }
 
@@ -42,7 +42,7 @@ class EditPortfolio extends Component
         $this->validate();
         if ($this->image != '') {
             $this->validate([
-                'image' => 'image|max:2028', // 1MB Max
+                'image' => 'image|max:2028', // 2MB Max
             ]);
             
             $image = asset('public/storage/' . str_replace('public/', '', $this->image->store('public/portfolios')));
