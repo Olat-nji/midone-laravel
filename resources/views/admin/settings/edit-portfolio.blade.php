@@ -54,8 +54,8 @@
                             @else
                             <img class="w-40 p-3" src="{{asset($portfolio->image)}}">
                             @endif
-                            <div class="col-span-12 text-center  flex justify-center " wire:loading.class="p-10">
-                                <div wire:loading wire:target="save">
+                            <div class="col-span-12 text-center  flex justify-center " wire:loading.class="p-10" wire:target="save">
+                                <div wire:loading >
                                     <i data-loading-icon="three-dots" class=" w-8 h-8"></i>
                                 </div>
                             </div>
