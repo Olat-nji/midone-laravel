@@ -21,6 +21,7 @@ class Portfolio extends Component
         'name' => 'required',
         'link' => 'required',
         
+
         
     ];
 
@@ -33,7 +34,7 @@ class Portfolio extends Component
     public function updatedImage()
     {
         $this->validate([
-            'image' => 'image|max:1024', // 1MB Max
+            'image' => 'image|max:2028', // 1MB Max
         ]);
     }
    
@@ -48,7 +49,7 @@ class Portfolio extends Component
     {
         
         $this->validate([
-            'image' => 'image|max:1024', // 1MB Max
+            'image' => 'image|max:2028', // 1MB Max
         ]);
         $this->validate();
         $image = asset('public/storage/'.str_replace('public/','',$this->image->store('public/portfolios')));
