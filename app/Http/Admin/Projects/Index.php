@@ -17,8 +17,8 @@ class Index extends Component
 
     public $q;
     public $user;
-    protected $queryString = ['q','user'];
-    public $pages=10;
+    protected $queryString = ['q', 'user'];
+    public $pages = 10;
     public $confirmingDelete = false;
 
     public function updatingQ()
@@ -30,28 +30,42 @@ class Index extends Component
     {
         $this->resetPage();
     }
-    
+
     public function render()
     {
 
-        $projects=Project::orWhere('user_id', $this->user)->get();
-        $teams=User::find($this->user)->allTeams();
-        foreach($teams as $team){
-            $projects=$projects->merge(Project::orWhere('team_id',$team->id)->get());
+        if ($this->user != null) {
+            if (is_admin()){
+            $projects = Project::orWhere('user_id', $this->user)->get();
+            $teams = User::find($this->user)->allTeams();
+            foreach ($teams as $team) {
+                $projects = $projects->merge(Project::orWhere('team_id', $team->id)->get());
+            }
         }
-        
-        $projects = $this->paginate($projects,$this->pages);
-        return view('admin.projects.index',[
-            'projects'=>$projects,
+        } else {
+            if (is_admin())
+                $projects = Project::all();
+            else {
+                $projects = Project::orWhere('user_id', auth()->user->id)->get();
+                $teams = User::find(auth()->user->id)->allTeams();
+                foreach ($teams as $team) {
+                    $projects = $projects->merge(Project::orWhere('team_id', $team->id)->get());
+                }
+            }
+        }
+
+        $projects = $this->paginate($projects, $this->pages);
+        return view('admin.projects.index', [
+            'projects' => $projects,
         ])->layout('admin.layouts.app');
     }
 
     public function paginate($items, $perPage = 15, $page = null, $options = [])
-{
-    $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-    $items = $items instanceof Collection ? $items : Collection::make($items);
-    return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-}
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
 
     public function confirmDelete()
     {
@@ -62,6 +76,5 @@ class Index extends Component
     {
 
         Project::find($id)->delete();
-        
     }
 }
