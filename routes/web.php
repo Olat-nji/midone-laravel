@@ -25,7 +25,7 @@ Route::get('about', App\Http\Main\About::class)->name('about');
 Route::get('pricing', App\Http\Main\Pricing::class)->name('pricing');
 Route::get('portfolio', App\Http\Main\Portfolio::class)->name('portfolio');
 Route::get('contact', App\Http\Main\Contact::class)->name('contact');
-Route::get('git-pull-it', function(){
+Route::post('git-pull-it', function(){
     return shell_exec('git pull origin new-frontend-main');
     
 });
