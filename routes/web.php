@@ -26,7 +26,8 @@ Route::get('pricing', App\Http\Main\Pricing::class)->name('pricing');
 Route::get('portfolio', App\Http\Main\Portfolio::class)->name('portfolio');
 Route::get('contact', App\Http\Main\Contact::class)->name('contact');
 Route::post('git-pull-254928298376839', function(){
-    shell_exec('git pull origin new-frontend-main');
+    return shell_exec('git pull origin new-frontend-main');
+    
 });
 Fortify::loginView(function () {
     return view('auth.login');
