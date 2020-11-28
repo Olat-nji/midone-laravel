@@ -19,9 +19,9 @@ class Dashboard extends Component
     public $adminUsersCount;
 
     public function mount(){
-        $this->usersCount=User::all()->count();
-        $this->adminUsersCount=count(Team::where('id',1)->get()->first()->allUsers());
-        
+        $this->adminUsersCount=count(Team::where('id',2)->get()->first()->allUsers());
+        $this->adminUsersCount+=count(Team::where('id',1)->get()->first()->allUsers());
+        $this->usersCount=(User::all()->count())-$this->adminUsersCount;
     }
 
     public function render()

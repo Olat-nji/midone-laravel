@@ -45,7 +45,10 @@
                 <div class="cursor-pointer relative flex items-center mt-5" wire:click="viewNotification('{{$notification->id}}')">
                     <div class="w-12 h-12 flex-none image-fit mr-1">
                         <img alt="{{$notification->fromUser->name}}" class="rounded-full" src="{{$notification->fromUser->profile_photo_url}}">
-                        @if(Cache::has('user-is-online-' . $notification->fromUser->id))<div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>@endif
+                        @if(is_online($notification->fromUser->id)) 
+                        <div class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"></div>
+                        @endif
+                    
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">

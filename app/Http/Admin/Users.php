@@ -14,10 +14,10 @@ class Users extends Component
     protected $queryString = ['q'];
     public $pages=10;
 
-    public function updatingQ()
-    {
-        $this->resetPage();
-    }
+    // public function updatingQ()
+    // {
+    //     $this->resetPage();
+    // }
     
 
     public function render()
