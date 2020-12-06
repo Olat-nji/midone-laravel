@@ -1416,10 +1416,10 @@
                 </div>
             </div>
         </div>
-        <div class="w-4 h-4 sm:w-5 sm:h-5 relative text-gray-500 mr-3 sm:mr-5" wire:ignore>
+        {{-- <div class="w-4 h-4 sm:w-5 sm:h-5 relative text-gray-500 mr-3 sm:mr-5" wire:ignore>
             <span> <i data-feather="paperclip" class="w-full h-full"></i>  </span>
             <input type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
-        </div>
+        </div> --}}
     </div>
     <a  wire:click="send" class="w-8 h-8 sm:w-10 sm:h-10 block bg-theme-1 cursor-pointer text-white rounded-full flex-none flex items-center justify-center mr-5" wire:ignore > <i data-feather="send" class="w-4 h-4"></i> </a>
 </form>
