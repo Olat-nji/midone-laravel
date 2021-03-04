@@ -15,23 +15,27 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('team_id');
-            $table->foreignId('user_id');
-            $table->integer('budget')->nullable();
-            $table->text('image')->nullable();
-            $table->string('status')->nullable();
-            $table->string('purpose')->nullable();
-            $table->string('ecommerce')->nullable(); 
-            $table->string('no_of_products')->nullable();
-            $table->string('vendors')->nullable();
-            $table->string('similar')->nullable(); 
-            $table->string('similar_websites')->nullable();
-            $table->integer('progress')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('urgency')->nullable();
-            $table->string('extent_of_redesign')->nullable();
-            $table->string('website_url')->nullable();
+            $table->text('name')->nullable();
+            $table->bigInteger('price')->nullable();
+            $table->text('engine_type')->nullable();
+            $table->text('car_id')->nullable();
+            $table->text('transmission')->nullable();
+            $table->text('fuel_type')->nullable();
+            $table->foreignId('type_id')->nullable();
+            $table->foreignId('make_id')->nullable();
+            $table->text('condition')->nullable();
+            $table->text('exterior_color')->nullable();
+            $table->text('interior_color')->nullable();
+            $table->text('vin')->nullable();
+            $table->text('stars')->nullable();
+            $table->text('type')->nullable();
+            $table->text('car_location')->nullable();
+            $table->text('distance_used_for')->nullable();
+            $table->boolean('distress')->nullable();
+            $table->text('model')->nullable();
+            $table->foreignId('user_id')->nullable();
+            $table->boolean('approved')->nullable();
+            $table->boolean('sold')->nullable();
             $table->timestamps();
         });
     }

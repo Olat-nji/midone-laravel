@@ -29,18 +29,18 @@ class Dashboard extends Component
         if(Auth::user()->CurrentTeam->id==1){
         $projects = Project::orderBy('id','desc')->paginate($this->projectPages);
         $allProjects = Project::orderBy('id','desc');
-        $unanswered = Project::where('status','Unanswered')->get()->count();
+        
         }else{
-        $projects = Project::where('team_id',Auth::user()->CurrentTeam->id)->orderBy('id','desc')->paginate($this->projectPages);
-        $allProjects = Project::where('team_id',Auth::user()->CurrentTeam->id);
-        $unanswered = Project::where('status','Unanswered')->where('team_id',auth()->user()->CurrentTeam->id)->get()->count();
+        $projects = Project::where('user_id',Auth::user()->id)->orderBy('id','desc')->paginate($this->projectPages);
+        $allProjects = Project::where('user_id',Auth::user()->id);
+        
         }
+        
         
         return view('admin.dashboard',
         [
-            'projects'=>$projects,
             'allProjects'=>$allProjects,
-            'unanswered'=>$unanswered,
+            'projects'=>$projects,
             'messages'=>Contact::where('status',null)->get(),
             'users'=>User::orderBy('id','desc')->get()->take(6)
         ])->layout('admin.layouts.app');

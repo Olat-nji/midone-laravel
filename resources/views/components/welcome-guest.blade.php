@@ -77,46 +77,52 @@
         <div class="col-span-12 mt-6">
             <div class="intro-y block sm:flex items-center h-10">
                 <h2 class="text-lg font-medium truncate mr-5">
-                    Projects
+                    Cars
                 </h2>
-                <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
-                    <button class="button box flex items-center text-gray-700 dark:text-gray-300"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>
-                    <button class="ml-3 button box flex items-center text-gray-700 dark:text-gray-300"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF </button>
-                </div>
+                
             </div>
             <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
                 <table class="table table-report sm:mt-2">
                     <thead>
                         <tr>
 
-                            <th class="whitespace-no-wrap">PROJECT NAME</th>
-                            <th class="whitespace-no-wrap">BUDGET</th>
-                            <th class="text-center whitespace-no-wrap">URGENCY</th>
+                            <th class="whitespace-no-wrap">NAME</th>
+                            <th class="whitespace-no-wrap">PRICE</th>
+                            <th class="text-center whitespace-no-wrap">APPROVED</th>
                             <th class="text-center whitespace-no-wrap">ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($projects as $key => $project)
+                        @foreach($cars as $key => $car)
                         <tr class="intro-x">
 
                             <td>
-                                <a href="" class="font-medium whitespace-no-wrap">{{$project->name}}</a>
-                                <div class="text-gray-600 text-xs whitespace-no-wrap">{{$project->created_at->diffForHumans()}}</div>
+                                <a href="" class="font-medium whitespace-no-wrap">{{$car->name}}</a>
+                                <div class="text-gray-600 text-xs whitespace-no-wrap">{{$car->user()->get()->first()->name}}</div>
                             </td>
                             <td>
-                                <a href="" class="font-medium whitespace-no-wrap">{{$project->budget}}</a>
-                                <div class="text-gray-600 text-xs whitespace-no-wrap">{{$project->user->name}}</div>
-                            </td>
-                            <td class="w-40">
-                                <div class="flex items-center justify-center text-theme-6"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i>Start {{$project->urgency}} </div>
+                                <a href="" class="font-medium whitespace-no-wrap">₦{{number_format($car->price)}}</a>
+                                <div class="text-gray-600 text-xs whitespace-no-wrap">{{$car->created_at->diffForHumans()}}</div>
                             </td>
 
-                            <td class="table-report__action w-56">
-                                <div class="flex justify-center items-center">
-                                    <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                           <td class="w-40" wire:ignore>
+                            @if ($car->approved)<div class="flex items-center justify-center text-theme-9"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Approved </div>
+                            @if($car->sold)
+                            <div class="flex items-center justify-center">-- Sold</div>
+                            @else
+                            <div class="flex items-center justify-center">-- OnSale</div>
+                            @endif
+                            @else
+                            <div class="flex items-center justify-center text-theme-6"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Pending </div>
+                            @endif
 
-                                </div>
-                            </td>
+                        </td>
+                            <td class="table-report__action w-56" wire:ignore>
+                            <div class="flex justify-center items-center">
+                                <a class="flex items-center mr-3" href="{{url("cars/".$car->id.'/edit')}}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                                <button class="flex items-center text-theme-6" wire:click="confirmDelete({{$car->id}})" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </button>
+                            </div>
+                        </td>
                         </tr>
                         @endforeach
 
@@ -125,9 +131,9 @@
                 </table>
             </div>
             <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
-                {{$projects->links('admin.components.pagination')}}
+                {{$cars->links('admin.livewire.includes.pagination')}}
 
-                <select class="w-20 input box mt-3 sm:mt-0" wire:model="projectPages">
+                <select class="w-20 input box mt-3 sm:mt-0">
                     <option>10</option>
                     <option>25</option>
                     <option>50</option>
@@ -138,38 +144,33 @@
         @endif
         <!-- END: Weekly Top Products -->
     </div>
+<x-dialog-modal wire:model="confirmingDelete">
+        <x-slot name="title">
+            {{ __('Are You Sure You want to Delete?') }}
+        </x-slot>
+
+        <x-slot name="content">
+            {{ __('This information would be lost forever!') }}
+
+
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('confirmingDelete')" wire:loading.attr="disabled">
+                {{ __('Nevermind') }}
+            </x-secondary-button>
+
+            <x-danger-button class="ml-2" wire:click="delete()" wire:loading.attr="disabled">
+                {{ __('Delete') }}
+                </x-button>
+        </x-slot>
+    </x-dialog-modal>
+
 
     <div class="col-span-12 xxl:col-span-3 xxl:border-l border-theme-5 -mb-10 pb-10">
         <div class="xxl:pl-6 grid grid-cols-12 gap-6">
             <!-- BEGIN: Transactions -->
-            @if(count($allProjects->where('status','In Progress')->get())>0)
-            <div class="col-span-12 md:col-span-6 xl:col-span-6 xxl:col-span-12 mt-3 xxl:mt-8">
-                <div class="intro-x flex items-center h-10">
-                    <h2 class="text-lg font-medium truncate mr-5">
-                        Ongoing Projects
-                    </h2>
-                </div>
-                <div class="mt-5">
-
-                    @foreach($allProjects->where('status','In Progress')->get() as $project)
-                    <div class="intro-x">
-                        <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                                <img alt="{{$project->user->name}}" src="{{ $project->user->profile_photo_url}}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">{{$project->name}}</div>
-                                <div class="text-gray-600 text-xs">{{$project->created_at->diffForHumans()}}</div>
-                            </div>
-                            <div class="text-theme-9">{{$project->progress}}% Done</div>
-                        </div>
-                    </div>
-                    @endforeach
-
-                    <a href="{{url('projects')}}" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">View More</a>
-                </div>
-            </div>
-            @endif
+            
 
             <div class="col-span-12 md:col-span-6 xl:col-span-6 xxl:col-span-12 mt-3">
                 <div class="intro-x flex items-center h-10">
