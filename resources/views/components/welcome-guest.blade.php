@@ -7,14 +7,14 @@
                     <h2 class="text-lg font-medium truncate mr-5">
                         General Report
                     </h2>
-                    <a class="ml-auto flex text-theme-1 dark:text-theme-10 cursor-pointer" wire:click="$refresh"> <i data-feather="refresh-ccw" class="w-4 h-4 mr-3"></i> <span wire:loading.remove>Reload Data</span> <span wire:loading> Reloading Data ...</span></a>
+                    <a class="ml-auto flex text-theme-1 dark:text-theme-10 cursor-pointer" wire:click="$refresh" wire:ignore> <i data-feather="refresh-ccw" class="w-4 h-4 mr-3"></i> <span wire:loading.remove>Reload Data</span> <span wire:loading> Reloading Data ...</span></a>
                 </div>
                 <div class="grid grid-cols-12 gap-6 mt-5">
 
                     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                         <div class="report-box zoom-in">
                             <div class="box p-5">
-                                <div class="flex">
+                                <div class="flex" wire:ignore>
                                     <i data-feather="refresh-cw" class="report-box__icon text-theme-11"></i>
                                     {{-- <div class="ml-auto">
                                         <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="2% Lower than last month"> 2% <i data-feather="chevron-down" class="w-4 h-4"></i> </div>
@@ -28,7 +28,7 @@
                     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                         <div class="report-box zoom-in">
                             <div class="box p-5">
-                                <div class="flex">
+                                <div class="flex" wire:ignore>
                                     <i data-feather="monitor" class="report-box__icon text-theme-10"></i>
                                     {{-- <div class="ml-auto">
                                         <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="12% Higher than last month"> 12% <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
@@ -106,20 +106,20 @@
                             </td>
 
                            <td class="w-40" wire:ignore>
-                            @if ($car->approved)<div class="flex items-center justify-center text-theme-9"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Approved </div>
+                            @if ($car->approved)<div class="flex items-center justify-center text-theme-9" wire:ignore> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Approved </div>
                             @if($car->sold)
                             <div class="flex items-center justify-center">-- Sold</div>
                             @else
                             <div class="flex items-center justify-center">-- OnSale</div>
                             @endif
                             @else
-                            <div class="flex items-center justify-center text-theme-6"> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Pending </div>
+                            <div class="flex items-center justify-center text-theme-6" wire:ignore> <i data-feather="check-square" class="w-4 h-4 mr-2"></i> Pending </div>
                             @endif
 
                         </td>
                             <td class="table-report__action w-56" wire:ignore>
                             <div class="flex justify-center items-center">
-                                <a class="flex items-center mr-3" href="{{url("cars/".$car->id.'/edit')}}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                                <a class="flex items-center mr-3" href="{{url("cars/".$car->id.'/edit')}}" wire:ignore> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                 <button class="flex items-center text-theme-6" wire:click="confirmDelete({{$car->id}})" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </button>
                             </div>
                         </td>
