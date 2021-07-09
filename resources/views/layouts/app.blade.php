@@ -17,14 +17,16 @@
     <link rel="stylesheet" href="{{asset('public/css/main.css')}}">
     <script src="{{ asset('public/js/app.js') }}" defer></script>
     <script src="{{ asset('public/js/alpine.js') }}" defer></script>
-    
-    
 
-    
+
+
+
     @livewireStyles
     @livewireScripts
+    @stack('scripts')
 </head>
-
+@include('sweetalert::alert')
+@if(env('APP_ENV')=='local')<script src="{{asset('public/vendor/sweetalert/sweetalert.all.js')}}"></script>@endif
 <body>
 
     {{-- <div class="loader">
@@ -50,7 +52,7 @@
 
     @include('main.includes.footer')
     <script src="public/js/main.js"></script>
-    
+
     <script type="text/javascript">
         (function() {
             var options = {

@@ -23,10 +23,12 @@
 
 
     @yield('scripts')
-
-    <!-- END: CSS Assets-->
+    @stack('scripts')
+    
 </head>
-<!-- END: Head -->
+
+@include('sweetalert::alert')
+@if(env('APP_ENV')=='local')<script src="{{asset('public/vendor/sweetalert/sweetalert.all.js')}}"></script>@endif
 <body :class="{ 'bg-gray-900': dark }" class="app bg-white">
     <style>
         .modal {

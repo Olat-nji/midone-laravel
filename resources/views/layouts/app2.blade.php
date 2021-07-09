@@ -21,8 +21,10 @@
     <title>{{env('APP_NAME')}}</title>
     @livewireStyles
     @livewireScripts
+    @stack('scripts')
 </head>
-
+@include('sweetalert::alert')
+@if(env('APP_ENV')=='local')<script src="{{asset('public/vendor/sweetalert/sweetalert.all.js')}}"></script>@endif
 <body>
 
     {{-- <div class="loader">

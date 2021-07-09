@@ -107,7 +107,7 @@
                             <td class="table-report__action w-56" wire:ignore>
                             <div class="flex justify-center items-center">
                                 <a class="flex items-center mr-3" href="{{url("projects/".$project->id.'/edit')}}" wire:ignore> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
-                                <button class="flex items-center text-theme-6" wire:click="confirmDelete({{$project->id}})" data-toggle="modal" data-target="#delete-confirmation-modal" wire:ignore> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </button>
+                                <button class="flex items-center text-theme-6" wire:click="$emit('triggerDelete',{{ $project->id }})"  wire:ignore> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </button>
                             </div>
                         </td>
                         </tr>
