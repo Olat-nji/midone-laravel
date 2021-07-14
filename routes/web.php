@@ -40,9 +40,31 @@ Fortify::resetPasswordView(function ($request) {
 //     return view('auth.verify-email');
 // });
 
+// Send Email
+// Route::get('/test', function () {
+//     $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+//     $beautymail->send('emails.welcome', [], function ($message) {
+//         $message
+//             ->from('bar@example.com')
+//             ->to('foo@example.com', 'John Smith')
+//             ->subject('Welcome!');
+//     });
+// });
 
+Route::get('/mail/one', function () {
+    return view('mail.one');
+});
 
+Route::get('/mail/two', function () {
+    return view('mail.two');
+});
+Route::get('/mail/three', function () {
+    return view('mail.three');
+});
 
+Route::get('/mail/four', function () {
+    return view('mail.four');
+});
 //Projects
 Route::get('/projects/create', App\Http\Admin\Projects\Create::class)->name('projects.show');
 
