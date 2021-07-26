@@ -4,7 +4,7 @@
             <div class="page-header">
                 <h4 class="page-title">Profile</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Back</a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/')}}">Back</a></li>
                 </ol>
             </div>
             <div class="row" id="user-profile">
