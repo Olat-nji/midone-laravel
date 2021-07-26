@@ -45,7 +45,12 @@ class UserSeeder extends Seeder
     {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
-            'name' => explode(' ', $user->name, 2)[0]."'s Team",
+            'name' => "Admin",
+            'personal_team' => true,
+        ]));
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $user->id,
+            'name' => "Users",
             'personal_team' => true,
         ]));
     }

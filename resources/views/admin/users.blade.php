@@ -7,7 +7,7 @@
 
     @endsection
 
-    @if(Auth::user()->currentTeam->id==1)
+    
     <h2 class="intro-y text-lg font-medium mt-10">
         Users
     </h2>
@@ -36,30 +36,17 @@
                             <div class="text-gray-600 text-xs">Created {{$user->created_at->diffForHumans()}}</div>
                         </div>
                     </div>
-                    <div class="absolute right-0 top-0 dropdown">
-                        <a class="dropdown-toggle w-5 h-5 block" href="javascript:;"> <i data-feather="more-horizontal" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i> </a>
-                        <div class="dropdown-box w-40">
-                            <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                                <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="edit-2" class="w-4 h-4 mr-2"></i> Edit </a>
-                                <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="trash" class="w-4 h-4 mr-2"></i> Delete </a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="text-center lg:text-left p-5">
-                    <div> Teams : @foreach($user->allTeams() as $key => $value)
-                        <a href="{{url('teams/'.$value->id)}}" class="text-theme-3">{{$value->name}}</a>
-                        @if($value->id!=$user->allTeams()->last()->id)
-                        ,
-                        @endif
-                        @endforeach</div>
+
                     <div class="flex items-center justify-center lg:justify-start text-gray-600 mt-5"> <i data-feather="mail" class="w-3 h-3 mr-2"></i>{{$user->email}}</div>
                     <div class="flex items-center justify-center lg:justify-start text-gray-600 mt-5"> <i data-feather="phone" class="w-3 h-3 mr-2"></i>{{$user->phone}}</div>
+                    <div class="flex items-center justify-center lg:justify-start text-gray-600 mt-5"> <i data-feather="phone" class="w-3 h-3 mr-2"></i>Instagram ID: {{$user->instagram_id}}</div>
 
                 </div>
                 <div class="text-center lg:text-right p-5 border-t border-gray-200 dark:border-dark-5">
-                    <a href="{{url('chat?user='.$user->id)}}" class="button button--sm text-white bg-theme-1 mr-2">Message</a>
-                    <a class="button button--sm text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300">Projects</a>
+                    <a class="button button--sm text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300" href="{{url('orders?user='.$user->id)}}">Orders</a>
                 </div>
             </div>
         </div>
@@ -79,9 +66,7 @@
         </div>
         <!-- END: Pagination -->
     </div>
-    @else
-    <x-live-chat />
-    @endif
+    
 
 
 

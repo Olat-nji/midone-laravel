@@ -1,6 +1,6 @@
 <?php
 if(env('APP_ENV')=='local'){
-    $path='/skylevel-new-new';
+    $path='/dee';
 }else{
     $path=null;
 }

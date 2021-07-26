@@ -20,11 +20,8 @@ use Laravel\Fortify\Fortify;
 */
 
 Route::get('/', App\Http\Main\Index::class)->name('index');
-Route::get('about-us', App\Http\Main\About::class)->name('about');
-Route::get('about', App\Http\Main\About::class)->name('about');
-Route::get('pricing', App\Http\Main\Pricing::class)->name('pricing');
-Route::get('portfolio', App\Http\Main\Portfolio::class)->name('portfolio');
-Route::get('contact', App\Http\Main\Contact::class)->name('contact');
+Route::get('/cart', App\Http\Main\Cart::class)->name('index');
+
 
 Fortify::loginView(function () {
     return view('auth.login');
@@ -44,42 +41,26 @@ Fortify::resetPasswordView(function ($request) {
 // });
 
 
-
-
-//Projects
-Route::get('/projects/create', App\Http\Admin\Projects\Create::class)->name('projects.show');
-
+Route::get('/checkout', App\Http\Main\Checkout::class)->name('checkout');
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+Route::get('/profile', App\Http\Main\Profile::class)->name('profile');
+Route::get('/profile/edit', App\Http\Main\ProfileEdit::class)->name('profile');
+
+
+});
+Route::group(['middleware' => ['auth:sanctum', 'verified','admin']], function () {
+
+
 
     Route::get('/dashboard', App\Http\Admin\Dashboard::class)->name('dashboard');
-    Route::get('/chat', App\Http\Admin\LiveChat::class)->name('live-chat');
     Route::get('/users', App\Http\Admin\Users::class)->name('users');
 
-
-    //Settings
-    Route::get('/settings', App\Http\Admin\Settings\Index::class)->name('settings');
-    Route::get('/settings/about', App\Http\Admin\Settings\About::class)->name('settings.about');
-    Route::get('/settings/pricing', App\Http\Admin\Settings\Pricing::class)->name('settings.pricing');
-    Route::get('/settings/pricing/{pricing}/edit', App\Http\Admin\Settings\EditPricing::class)->name('settings.pricing.edit-pricing');
-    Route::get('/settings/services', App\Http\Admin\Settings\Services::class)->name('settings.services');
-    Route::get('/settings/services/{service}/edit', App\Http\Admin\Settings\EditServices::class)->name('settings.services.edit-services');
-    Route::get('/settings/core-technologies', App\Http\Admin\Settings\Pricing::class)->name('settings.core-technologies');
-
-    //Settings- FAQ
-    Route::get('/settings/faqs', App\Http\Admin\Settings\Faq::class)->name('settings.faqs');
-    Route::get('/settings/faqs/{faq}/edit', App\Http\Admin\Settings\EditFaq::class)->name('settings.faqs.edit-faq');
-
-    Route::get('/settings/testimonials', App\Http\Admin\Settings\Testimonials::class)->name('settings.testimonials');
-    Route::get('/settings/testimonials/{testimonial}/edit', App\Http\Admin\Settings\EditTestimonial::class)->name('settings.testimonials.edit-testimonial');
-
-    Route::get('/settings/portfolios', App\Http\Admin\Settings\Portfolio::class)->name('settings.portfolios');
-    Route::get('/settings/portfolios/{portfolio}/edit', App\Http\Admin\Settings\EditPortfolio::class)->name('settings.portfolios.edit-portfolio');
-
-
     //Projects
-    Route::get('/projects', App\Http\Admin\Projects\Index::class)->name('projects');
-    Route::get('/projects/{project}', App\Http\Admin\Projects\Show::class)->name('projects.show');
-    Route::get('/projects/{project}/edit', App\Http\Admin\Projects\Edit::class)->name('projects.edit');
+    Route::get('/orders', App\Http\Admin\Orders\Index::class)->name('orders');
+    Route::get('/orders/{order}', App\Http\Admin\Orders\View::class)->name('orders');
+    // Route::get('/projects/{project}/edit', App\Http\Admin\Projects\Edit::class)->name('projects.edit');
+    Route::get('/products', App\Http\Admin\Products\Index::class)->name('products');
+    Route::get('/products/{product}', App\Http\Admin\Products\Edit::class)->name('products');
 
     // User & Profile...
     Route::get('/user/profile', [UserProfileController::class, 'show'])

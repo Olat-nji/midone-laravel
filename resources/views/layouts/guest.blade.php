@@ -1,53 +1,67 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-TileColor" content="#0061da">
+    <meta name="theme-color" content="#1643a3">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="{{asset("public/main/user/favicon.ico")}}" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset("public/main/user/favicon.ico")}}">
 
-    <title>Skylevel&mdash;Concepts</title>
+    <!-- Title -->
+    <title></title>
+    <link rel="stylesheet" href="{{asset("public/main/user/assets/fonts/fonts/font-awesome.min.css")}}">
 
-    <meta name="keyword" content="sky, skylevel, skylevel-concepts, conepts, concpets,Fiyin,samuel, ogunsola samuel, ogunsola samuel fiyin, ogunsola fiyinfoluwa samuel, Damilola, level, concept, concepts, skylevelconcepts, fiyinfoluwa, ogunsola, phyyeen001, phyyeen, blog, websitedesgin, marketing, cheap website design, free website design, unilag, lasu, ui, bbn, bet9ja, bb9ja, bbnigeria, happynewyear, ikeja lagos, company in ikeja, website company, 2020" />
-    <meta name="description" content="Skylevel-Concepts is a Nigeria based IT company, where creative minds provide solutions and help to move businesses to the next level. We are built on a great level of integrity, principle and excellence out put." />
-    <meta name="author" content="skylevelconcepts.com.ng">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{asset('public/img/favicon.png')}}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="public/img/apple-touch-icon.png">
+    <!-- Font family-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="public/css/main.css">
-    <link rel="stylesheet" href="{{ asset('public/css/app2.css') }}" >
-    <title>SkyLevel Concepts - {{$page}}</title>
-    @livewireStyles
-    @livewireScripts
-    <script src="{{ asset('public/js/app.js') }}" defer></script>
-    <script src="{{ asset('public/js/alpine.js') }}" defer></script>
+    <!-- Sidemenu Css -->
+    <link href="{{asset("public/main/user/assets/plugins/fullside-menu/css/style.css")}}" rel="stylesheet">
+    <link href="{{asset("public/main/user/assets/plugins/fullside-menu/waves.min.css")}}" rel="stylesheet">
+
+
+    <link href="{{asset("public/main/user/assets/css/dashboard.css")}}" rel="stylesheet">
+
+    <!-- c3.js Charts Plugin -->
+    <link href="{{asset("public/main/user/assets/plugins/charts-c3/c3-chart.css")}}" rel="stylesheet">
+
+    <!-- Custom scroll bar css-->
+    <link href="{{asset("public/main/user/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css")}}" rel="stylesheet">
+
+    <!---Font icons-->
+    <link href="{{asset("public/main/user/assets/css/icons.css")}}" rel="stylesheet">
+
 </head>
-
 <body>
-
-    {{-- <div class="loader">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="spinner">
-                    <div class="rect1"></div>
-                    <div class="rect2"></div>
-                    <div class="rect3"></div>
-                    <div class="rect4"></div>
-                    <div class="rect5"></div>
-                </div>
-            </div>
+    <div class="login-img">
+        <div id="global-loader"></div>
+        <div class="page">
+            {{$slot}}
         </div>
-    </div> --}}
+    </div>
 
+    <script src="{{asset("public/main/user/assets/js/vendors/jquery-3.2.1.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/js/vendors/bootstrap.bundle.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/js/vendors/jquery.sparkline.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/js/vendors/selectize.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/js/vendors/jquery.tablesorter.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/js/vendors/circle-progress.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/plugins/rating/jquery.rating-stars.js")}}"></script>
 
-    
+    <!-- Fullside-menu Js-->
+    <script src="{{asset("public/main/user/assets/plugins/fullside-menu/jquery.slimscroll.min.js")}}"></script>
+    <script src="{{asset("public/main/user/assets/plugins/fullside-menu/waves.min.js")}}"></script>
 
+    <!-- Custom scroll bar Js-->
+    <script src="{{asset("public/main/user/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js")}}"></script>
 
-    {{$slot}}
-
-
-    
-    <script src="public/js/main.js"></script>
+    <!-- Custom Js-->
+    <script src="{{asset("public/main/user/assets/js/custom.js")}}"></script>
 </body>
-
 </html>

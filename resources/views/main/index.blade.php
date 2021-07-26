@@ -1,279 +1,355 @@
 <div>
 
-    <div class="banner-area">
-        <div class="banner-shape d-sm-none  d-none d-lg-block">
-            <img src="{{ asset('public/images/sass-banner-main.png')}}" alt="Banner">
-            <img src="{{ asset('public/images/sass-banner-shape1.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape2.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape3.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape2.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape3.png')}}" alt="Banner">
-        </div>
-
-        <div class="banner-shape d-lg-none d-sm-block ">
-            <img src="{{ asset('public/img/admin-banner.png')}}" alt="Banner">
-            <img src="{{ asset('public/images/sass-banner-shape1.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape2.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape3.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape2.png')}}" alt="Banner"><img src="{{ asset('public/images/sass-banner-shape3.png')}}" alt="Banner">
-        </div>
-
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container-fluid">
-                    <div class="banner-content">
-
-                        <span> <img src="{{ asset('public/img/apple-touch-icon.png')}}" alt="logo"> SKYLEVEL-CONCEPTS</span>
-                        <h1>WELCOME</h1>
-                        <p>Everyone has a reason to work with technology.<br>We stand as a link between you and the tech world!</p>
-                        <div class="banner-btn">
-                            <a href="{{url('projects/create')}}" data-turbolinks="false" class="cmn-btn">
-                                Get Started
-                                <i class="bx bx-plus"></i>
-                            </a>
-
-                        </div>
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="
+                offset-xl-3
+                col-xl-6
+                offset-lg-2
+                col-lg-8 col-md-12 col-sm-12
+              ">
+                        <h1>Welcome to <strong>deegeets </strong>media</h1>
+                        <p class="font">
+                            We help <strong>grow </strong>your instagram account
+                        </p>
+                        <a href="#features" class="main-button-slider">Discover More</a>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- ***** Header Text End ***** -->
     </div>
-    <!-- End Banner -->
+    <!-- ***** Welcome Area End ***** -->
 
-    <!-- Service -->
-    <section class="service-area pt-100 pb-70" id="services">
+    <!-- ***** Features Small Start ***** -->
+    <section class="section home-feature">
         <div class="container">
-            <div class="section-title two">
-                <span class="sub-title">OUR SERVICES</span>
-                <h2>Here's What We Do</h2>
-            </div>
             <div class="row">
-                @foreach($services as $key=>$service)
-                <div class="col-sm-6 col-lg-3">
-                    <div class="service-item-two">
-                        <img src="{{$service->image}}" alt="{{$service->name}}">
-                        <h3>
-                            <a href="{{url('services/'.$service->id)}}">{{$service->name}}</a>
-                        </h3>
-                        <p>{!!$service->description!!}</p>
-                        <a class="service-link" href="{{url('services/'.$service->id)}}">
-                            Read More
-                            <i class='bx bx-plus'></i>
-                        </a>
-                    </div>
-                </div>
-                @endforeach
-
-            </div>
-        </div>
-    </section>
-
-    <!-- End Service -->
-    <!-- Design -->
-    <section class="design-area  pb-70">
-        <div class="container">
-            <div class="row align-items-center pb-70">
-                <div class="col-lg-6">
-                    <div class="design-content">
-                        <div class="section-title two">
-                            <span class="sub-title">ABOUT US</span>
-                            <h2>Let's help you reach your Goal</h2>
-                            {!!$about->value!!}
-
+                <div class="col-lg-12">
+                    <div class="row">
+                        <!-- ***** Features Small Item Start ***** -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="{{asset("public/main/front/assets/images/featured-item-01.png")}}" alt="" /></i>
+                                </div>
+                                <h5 class="features-title">Active and high quality</h5>
+                                <p>
+                                    We provide the highest quality for our users instagram
+                                    account.
+                                </p>
+                            </div>
                         </div>
+                        <!-- ***** Features Small Item End ***** -->
 
-                        <a href="{{url('about')}}" class="cmn-btn">
-                            Read More
-                            <i class='bx bx-plus'></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="design-img">
-                        <img src="{{ asset('public/images/it-startup/design1.jpg')}}" alt="Design">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="inquiry-area">
-        <div class="inquiry-shape">
-            <img src="{{ asset('public/images/sass-inquiry1.png')}}" alt="Shape"><img src="{{ asset('public/images/sass-inquiry2.png')}}" alt="Shape"><img src="{{ asset('public/images/sass-inquiry3.png')}}" alt="Shape"><img src="{{ asset('public/images/sass-inquiry4.png')}}" alt="Shape"><img src="{{ asset('public/images/sass-inquiry5.png')}}" alt="Shape"></div>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="inquiry-img">
-                        <img src="{{ asset('public/images/sass-inquiry-main.png')}}" alt="Inquiry"></div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="inquiry-content">
-                        <div class="section-title">
-                            <span class="sub-title">Project Inquiry</span>
-                            <h2>Have Any Questions Regarding Your Upcoming Project ?</h2>
+                        <!-- ***** Features Small Item Start ***** -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <!-- <i
+                      ><img src="assets/images/featured-item-01.png" alt=""
+                    /></i> -->
+                                    <i class="fas  fa-phone-alt"></i>
+                                </div>
+                                <h5 class="features-title">Available customer support</h5>
+                                <p>Contact us immediately if you have a question or issue.</p>
+                            </div>
                         </div>
-                        <a href="{{url("contact")}}" class="cmn-btn">
-                            Ask Us
-                            <i class="bx bx-plus"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <!-- ***** Features Small Item End ***** -->
 
-    <div class="about-area-two pb-70 pt-100">
-        <div class="about-shape">
-            <img src="{{ asset('public/images/digital-about2.png')}}" alt="Shape"><img src="{{ asset('public/images/digital-about3.png')}}" alt="Shape"><img src="{{ asset('public/images/digital-about4.png')}}" alt="Shape"></div>
-        <div class="container-fluid p-0">
-            <div class="row m-0 align-items-center">
-                <div class="col-lg-6 p-0">
-                    <div class="about-img">
-                        <img src="{{ asset('public/images/digital-about-main.png')}}" alt="About"></div>
-                </div>
-                <div class="col-lg-6 p-0">
-                    <div class="about-content">
-                        <div class="section-title three">
-                            <span class="sub-title">Services</span>
-                            <h2>Don't Worry ... You're in Good Hands</h2>
-                            <p>Here are some the services we provide free of charge to you when you patronize us!</p>
+                        <!-- ***** Features Small Item Start ***** -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h5 class="features-title">100% safety</h5>
+                                <p>
+                                    There is no risk utilizing our services, we guarantee it!
+                                </p>
+                            </div>
                         </div>
-                        <ul>
-                            <li>
-                                <i class="flaticon-checkmark"></i> Live Chat
-                            </li>
-                            <li>
-                                <i class="flaticon-checkmark"></i> Search Engine Submission
-                            </li>
-                            <li>
-                                <i class="flaticon-checkmark"></i> Basic SEO
-                            </li>
-                            <li>
-                                <i class="flaticon-checkmark"></i> Social Share
-                            </li>
-                            <li>
-                                <i class="flaticon-checkmark"></i> Admin Dashboard
-                            </li>
-                        </ul><a href="{{url('projects/create')}}" data-turbolinks="false" class="cmn-btn">
-                            Explore More
-                            <i class="bx bx-plus"></i>
-                        </a>
+                        <!-- ***** Features Small Item End ***** -->
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio-area ptb-100">
-        <div class="container">
-            <div class="section-title three">
-                <h2>Check Out Our Awesome Portfolio!</h2>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="portfolio-slider owl-theme owl-carousel">
-                @foreach($portfolios as $portfolio)
-                <div class="portfolio-item">
-                    <img src="{{$portfolio->image}}" alt="Portfolio">
-                    <div class="portfolio-inner">
-                        <span>{{$portfolio->name}}</span>
-                        <h3>
-                            <a href="{{$portfolio->link}}">{{$portfolio->description}}</a>
-                        </h3>
-                    </div>
-                </div>
-                @endforeach
-
-            </div>
-            <div class="portfolio-contact">
-                <p>We're Taking New Projects <a href="{{url('project/create')}}">Contact Us</a></p>
-            </div>
-        </div>
-    </div>
-    @if(count($testimonials)>0)
-    <section class="testimonials-area ptb-100">
-        <div class="testimonials-img">
-            <img src="{{ asset('public/images/digital-testimonial1.jpg')}}" alt="Client"><img src="{{ asset('public/images/digital-testimonial2.jpg')}}" alt="Client"><img src="{{ asset('public/images/digital-testimonial3.jpg')}}" alt="Client"><img src="{{ asset('public/images/digital-testimonial4.jpg')}}" alt="Client"><img src="{{ asset('public/images/digital-testimonial5.jpg')}}" alt="Client"><img src="{{ asset('public/images/digital-testimonial6.jpg')}}" alt="Client"></div>
-        <div class="container">
-            <div class="section-title three">
-                <span class="sub-title">Testimonials</span>
-                <h2>Client Feedbacks</h2>
-            </div>
-            <div class="testimonials-slider owl-theme owl-carousel">
-                @foreach($testimonials as $testimonial)
-                <div class="testimonials-item">
-                    <p>{{$testimonial->testimonial}}</p>
-                    <h3>{{$testimonial->name}}</h3>
-                    <span>{{$testimonial->job}}</span>
-                </div>
-                @endforeach
-
             </div>
         </div>
     </section>
-    @endif
-
-    <div class="partner-area">
-        <div class="container-fluid p-0">
-            <div class="partner-slider owl-theme owl-carousel">
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-1.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-2.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-3.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-1.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-5.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-3.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{ asset('public/img/logos/logo-2.png')}}" alt="Partner">
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Partner -->
-
-    <!-- FAQ -->
-    @if(count($faqs)>0)
-    <div class="faq-area pt-100 pb-70">
+    <!-- ***** Features Small End ***** -->
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section padding-bottom-100" id="features">
         <div class="container">
-            <div class="section-title two">
-                <h2>What Do You Want To <span>Know?</span></h2>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="faq-content">
-                        <ul class="accordion">
-                            @foreach($faqs as $key => $value)
-                            <li>
-                                <a>
-                                    {{$value->name}}
-                                    <i class="flaticon-visibility"></i>
-                                    <i class="flaticon-eye two"></i>
-                                </a>
-                                <p>{{$value->value}}</p>
-                            </li>
-                            @endforeach
-
-
-                        </ul>
+            <div class="row">
+                <div class="
+              col-lg-6 col-md-12 col-sm-12
+              align-self-center
+              mobile-bottom-fix
+            ">
+                    <div class="left-heading">
+                        <h2 class="section-title">About us</h2>
+                    </div>
+                    <div class="left-text">
+                        <p>
+                            Our aim is to help you grow your instagram account. No fake, no
+                            bots just real people working actively on your account, at
+                            affordable rates.
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="faq-img">
-                        <img src="{{ asset('public/images/sass/faq-main.png')}}" alt="FAQ">
-                    </div>
+                <div class="col-lg-1"></div>
+                <div class="
+              col-lg-5 col-md-12 col-sm-12
+              align-self-center
+              mobile-bottom-fix-big
+            " data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <img src="{{asset("public/main/front/assets/images/right-image.png")}}" class="rounded img-fluid d-block mx-auto" alt="App" />
                 </div>
             </div>
         </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+
+    <!-- ***** Home Parallax Start ***** -->
+    <section class="mini" id="work-process">
+        <div class="mini-content">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-lg-3 col-lg-6">
+                        <div class="info">
+                            <h1>Work Process</h1>
+                            <p>We help provide the following services</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ***** Mini Box Start ***** -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                        <a href="#" class="mini-box">
+                            <i><img src="{{asset("public/main/front/assets/images/work-process-item-01.png")}}" alt="" /></i>
+                            <strong>Increasing Your Instagram Followers</strong>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                        <a href="#" class="mini-box">
+                            <i><img src="{{asset("public/main/front/assets/images/work-process-item-01.png")}}" alt="" /></i>
+                            <strong>Increasing Your Instagram likes</strong>
+                        </a>
+                        <!-- col-6 -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                        <a href="#" class="mini-box">
+                            <i><img src="{{asset("public/main/front/assets/images/work-process-item-01.png")}}" alt="" /></i>
+                            <strong>Increasing Your Instagram comments</strong>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                        <a href="#" class="mini-box">
+                            <i><img src="{{asset("public/main/front/assets/images/work-process-item-01.png")}}" alt="" /></i>
+                            <strong>Increasing Your Instagram views</strong>
+                        </a>
+                    </div>
+                </div>
+                <!-- ***** Mini Box End ***** -->
+            </div>
+        </div>
+    </section>
+    <!-- ***** Home Parallax End ***** -->
+
+
+    <div id="pricing-plans">
+        <!-- ***** Pricing Plans Start ***** -->
+        @foreach ($prods as $key => $products)
+
+
+        <section class="section colored">
+            <div class="container">
+                <!-- ***** Section Title Start ***** -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="center-heading">
+                            <h2 class="section-title">Buy your instagram {{strtolower($key)}}</h2>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ***** Section Title End ***** -->
+
+                <div class="row" wire:ignore.self>
+                    @foreach ($products as $product)
+                    <div class="@if(count($products)==1) col-md-12 @else col-lg-4 col-md-6 @endif col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s" wire:ignore.self>
+                        <div class="pricing-item">
+                            <div class="pricing-header">
+                                <h3 class="pricing-title">{{$product->name}}</h3>
+                            </div>
+
+                            <div class="pricing-body">
+                                @if($product->price!=null )
+                                <div class="price-wrapper">
+                                    <span class="currency">&#8358</span>
+                                    @if($product->type=='Comments')
+                                    <span class="price">{{$product->price}} per comment</span>
+                                    @else
+                                    @if(is_numeric($product->price) )
+                                    <span class="price">{{number_format($product->price)}}</span>
+                                    @else
+                                    <span class="price">{{$product->price}}</span>
+                                    @endif
+
+                                    @endif
+
+                                </div>
+                                @endif
+                                <ul class="list">
+                                    @foreach ($product->features as $feature)
+                                    <li class="active">{{$feature->value}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="pricing-footer">
+                                <a wire:loading.class="d-none" wire:click="addtocart({{$product->id}})" style="cursor:pointer; color:white;" class="main-button" target="_blank">Purchase Now</a>
+                                <a wire:loading style="cursor:pointer; color:white;" class="main-button" target="_blank">Please Wait...</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </section>
+
+        @endforeach
     </div>
-    @endif
 
-    <!-- End Mind -->
 
+
+    <!-- ***** Contact Us Start ***** -->
+    <section class="section colored" id="contact-us">
+        <div class="container">
+            <!-- ***** Section Title Start ***** -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="center-heading">
+                        <h2 class="section-title">Talk To Us</h2>
+                    </div>
+                </div>
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="center-text">
+                        <p>for any enquires or information?</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ***** Section Title End ***** -->
+
+            <div class="row">
+                <!-- ***** Contact Text Start ***** -->
+
+                <!-- ***** Contact Text End ***** -->
+
+                <!-- ***** Contact Form Start ***** -->
+                <div class="col-lg-10 col-md-6 col-sm-12">
+                    <div class="contact-form">
+                        <form id="contact" wire:submit.prevent="contact">
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <fieldset>
+                                        <input wire:model="name" type="text" class="form-control" id="name" placeholder="Full Name" required="" />
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <fieldset>
+                                        <input wire:model="email" type="email" class="form-control" id="email" placeholder="E-Mail Address" required="" />
+                                    </fieldset>
+                                </div>
+                                <input type="hidden" name="_next" value="https://deegeets.co/thankyou.html" />
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <textarea wire:model="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <button type="submit" wire:loading.remove wire:target="contact" id="form-submit" class="main-button">
+                                            Send Message
+                                        </button>
+                                        <button type="submit" wire:loading wire:target="contact" class="main-button">
+                                            Sending ...
+
+                                        </button>
+                                        <span x-data="{ shown: false, timeout: null }" x-init="@this.on('contact_saved', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000);  })" x-show.transition.opacity.out.duration.1500ms="shown" style="display: none;" class='text-sm text-gray-600 text-center'>
+                                            {{ 'Message Sent.' }}
+                                        </span>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- ***** Contact Form End ***** -->
+            </div>
+        </div>
+    </section>
+    @push('scripts')
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+
+            @this.on('added', id => {
+
+                Swal.fire({
+                    title: 'Item added to cart'
+                    , icon: 'success'
+                    , showCancelButton: true
+                    , confirmButtonColor: '#3085d6'
+                    , cancelButtonColor: '#aaa'
+                    , cancelButtonText: 'Close'
+                    , confirmButtonText: 'Go To Cart'
+                }).then((result) => {
+                    //if user clicks on delete
+                    console.log(result);
+                    if (result.value) {
+                        // calling destroy method to delete
+                        @this.call('viewcart')
+                        // success response
+
+                    } else {
+
+                    }
+                });
+            });
+
+
+            @this.on('exists', () => {
+                Swal.fire({
+                    title: 'Sorry'
+                    , text: 'You already have this in your cart!'
+                    , icon: 'warning'
+                    , showCancelButton: true
+                    , confirmButtonColor: '#3085d6'
+                    , cancelButtonColor: '#aaa'
+                    , cancelButtonText: 'Close'
+                    , confirmButtonText: 'Go To Cart'
+                }).then((result) => {
+                    //if user clicks on delete
+                    console.log(result);
+                    if (result.value) {
+                        // calling destroy method to delete
+                        @this.call('viewcart')
+                        // success response
+
+                    } else {
+
+                    }
+                });
+            });
+
+
+        })
+
+    </script>
+    @endpush
 </div>
