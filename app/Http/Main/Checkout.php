@@ -24,6 +24,7 @@ class Checkout extends Component
     public $phone;
     public $instagram_id;
     public $total;
+    public $order_id;
 
     public $rules = [
 
@@ -36,12 +37,16 @@ class Checkout extends Component
 
     public function mount()
     {
-
+        
 
         if (auth()->check()) {
             $user_id = auth()->user()->id;
         } else {
             $user_id = session('cart');
+        }
+        $cart = Cart::where('user_id', $user_id)->get();
+        if (count($cart) == 0) {
+            return redirect()->to('/');
         }
         if (Cart::where('user_id', $user_id)->where('product_id', 26)->get()->count() > 0) {
             $cart = Cart::where('user_id', $user_id)->where('product_id', 26)->get()->first();
@@ -59,7 +64,7 @@ class Checkout extends Component
 
         ];
         if (Auth::attempt($credentials, $this->log_remember)) {
-            $cart = ModelsCart::where('user_id', auth()->user()->id)->get();
+            $cart = Cart::where('user_id', auth()->user()->id)->get();
             $cart_i = session('cart');
             $car = Cart::where('user_id', $cart_i)->get();
             foreach ($car as $key => $value) {
@@ -105,7 +110,7 @@ class Checkout extends Component
             $newTeamMember = $user,
             ['role' => 'Editor']
         );
-        $user->current_team_id=$team->id;
+        $user->current_team_id = $team->id;
         $user->save();
 
 
@@ -118,20 +123,8 @@ class Checkout extends Component
 
     public function checkout()
     {
-        $cart = Cart::where('user_id', auth()->user()->id)->get();
-        $orders = new OrderDetails();
-        $orders->total = $this->total;
-        $orders->save();
 
-        foreach ($cart as $key => $value) {
-            $order = new Order();
-            $order->product_id = $value->product_id;
-            $order->user_id = auth()->user()->id;
-            $order->quantity = $value->quantity;
-            $order->order_id = $orders->id;
-            $order->save();
-            $value->delete();
-        }
+        $this->emit('out');
     }
 
 

@@ -135,10 +135,7 @@
                             , icon: 'success'
                         });
                     } else {
-                        Swal.fire({
-                            title: 'Operation Cancelled!'
-                            , icon: 'success'
-                        });
+                        
                     }
                 });
             });

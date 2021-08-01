@@ -36,10 +36,11 @@
             Items :
             @foreach($order->items as $key => $value)
             <p class="mb-5">
-                ({{$key+1}}) {{$value->product->name}} (₦{{$value->product->price}}{{($value->quantity!='')?'x'.$value->quantity:''}})
+                ({{$key+1}}) {{($value->product->name!=null)?$value->product->name:$value->product->type}} (₦{{$value->product->price}}{{($value->quantity!='')?'x'.$value->quantity:''}})
+
             </p>
             @endforeach
-
+            <p class="mb-5">Total : {{$order->total}}</p>
             @if($order->answered)
             <button class="button  ml-auto button--sm text-white bg-red-500 mr-auto" wire:click="unanswer({{$order->id}})">Unanswer</button>
             @else

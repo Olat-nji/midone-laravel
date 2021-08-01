@@ -175,12 +175,29 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <form class="text-center mt-3">
-                                @if(auth()->check())
-                                <a class="btn btn-primary btn-block btn-lg mt-2 m-b-20 text-white" style="cursor:pointer;" wire:click="checkout">Checkout</a>
-                                @endif
+                            <div class="text-center mt-3" wire:ignore>
+                                <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" id="#paymentform">
+                                    @if(session()->has('msg'))
+                                    {{session()->get('msg')}}
+                                    @endif
+                                    @if(auth()->check()&&$total!=0)
+
+
+                                    <input type="hidden" name="email" value="{{auth()->user()->email}}">
+                                    {{-- <input type="hidden" name="orderID" value="{{$this->cart_id}}"> --}}
+                                    <input type="hidden" name="currency" value="NGN">
+                                    <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+                                    <input type="hidden" name="amount" value="{{$total*100}}">
+                                    {{csrf_field()}}
+                                    <button class="btn btn-primary btn-block btn-lg mt-2 m-b-20 text-white" type="submit" style="cursor:pointer;" wire:click="checkout">Checkout</button>
+
+
+
+                                    @endif
+                                    <button class="d-none" style="cursor:pointer;" type="submit" style="display:none" id="check">Submit</button>
+                                </form>
                                 <a class="btn btn-secondary btn-block btn-lg mt-2 text-white" href="{{url('/')}}">Continue Shopping</a>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -257,7 +274,25 @@
                 });
             });
 
+            @this.on('out', name => {
+                Swal.fire({
+                    title: 'Please wait '
+                    , text: 'You will be redirected to the payment portal soon ...'
+                    , icon: 'info'
 
+                });
+                
+
+            });
+
+            @if (session('msg'))
+             Swal.fire({
+                    title: 'Error'
+                    , text: '{{session('msg')}}'
+                    , icon: 'error'
+
+                });
+            @endif
 
 
 

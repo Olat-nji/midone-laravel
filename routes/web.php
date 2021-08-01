@@ -43,12 +43,19 @@ Fortify::resetPasswordView(function ($request) {
 
 Route::get('/checkout', App\Http\Main\Checkout::class)->name('checkout');
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-Route::get('/profile', App\Http\Main\Profile::class)->name('profile');
-Route::get('/profile/edit', App\Http\Main\ProfileEdit::class)->name('profile');
-
-
+    Route::get('/profile', App\Http\Main\Profile::class)->name('profile');
+    Route::get('/profile/edit', App\Http\Main\ProfileEdit::class)->name('profile');
 });
-Route::group(['middleware' => ['auth:sanctum', 'verified','admin']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'verified', 'admin']], function () {
+
+
+    // Laravel 8
+    Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
+
+    Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback']);
+
+
+
 
 
 
