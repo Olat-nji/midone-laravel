@@ -27,7 +27,7 @@
     
 </head>
 
-@include('sweetalert::alert')
+@include('vendor.sweetalert.alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 @if(env('APP_ENV')=='local')<script src="{{asset('public/vendor/sweetalert/sweetalert.all.js')}}"></script>@endif
 <body :class="{ 'bg-gray-900': dark }" class="app bg-white">
     <style>

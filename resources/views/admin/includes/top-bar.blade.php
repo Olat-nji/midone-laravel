@@ -1,10 +1,7 @@
 <div class="top-bar">
     <!-- BEGIN: Breadcrumb -->
-    @if(Auth::check())
+    
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex"> <a href="{{url('dashboard')}}" class="">Application</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> {!! $header ?? $__env->yieldContent('header') !!}</div>
-    @else
-    <div class="-intro-x breadcrumb mr-auto hidden sm:flex"> <a href="{{url('/')}}" data-turbolinks="false" class="">Back To Home Page</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> {!! $header ?? $__env->yieldContent('header') !!}</div>
-    @endif
 
     <div class="intro-x relative mr-3 sm:mr-6">
           @livewire('admin.includes.search')

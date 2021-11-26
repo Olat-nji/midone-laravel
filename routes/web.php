@@ -66,18 +66,14 @@ Route::get('/mail/four', function () {
     return view('mail.four');
 });
 //Projects
-Route::get('/projects/create', App\Http\Admin\Projects\Create::class)->name('projects.show');
+
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::get('/dashboard', App\Http\Admin\Dashboard::class)->name('dashboard');
-    Route::get('/chat', App\Http\Admin\LiveChat::class)->name('live-chat');
+    
     Route::get('/users', App\Http\Admin\Users::class)->name('users');
-    Route::get('/settings', App\Http\Admin\Settings\Index::class)->name('settings');
-
-    Route::get('/projects', App\Http\Admin\Projects\Index::class)->name('projects');
-    Route::get('/projects/{project}', App\Http\Admin\Projects\Show::class)->name('projects');
-    Route::get('/projects/{project}/edit', App\Http\Admin\Projects\Edit::class)->name('projects');
+    
 
 
     // User & Profile...

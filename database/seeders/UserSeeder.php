@@ -18,13 +18,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $input =[
+        $input = [
             'name' => 'Olayemi Olatunji',
-                'email' => 'olayemi289@gmail.com',
-                'password' => '$2y$10$vyOCF.T0HLIEahoxuI1rjucSBFib74uJ0EEYkBpsIlmB4KfTPvgH6'
+            'email' => 'olayemi289@gmail.com',
+            'password' => '$2y$10$vyOCF.T0HLIEahoxuI1rjucSBFib74uJ0EEYkBpsIlmB4KfTPvgH6'
         ];
-         DB::transaction(function () use ($input) {
-             tap(User::create([
+        DB::transaction(function () use ($input) {
+            tap(User::create([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => $input['password'],
@@ -32,21 +32,6 @@ class UserSeeder extends Seeder
                 $this->createTeam($user);
             });
         });
-        $input =[
-            'name' => 'Ogunsola Fiyin',
-                'email' => 'phyyeensweb@yahoo.com',
-                'password' => '$2y$10$YcwW8zmpKsbA2L/0EL2YKOQVc2Yqgr33fKPgUl3rNuFk/4cDgvup.'
-        ];
-         DB::transaction(function () use ($input) {
-             tap(User::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => $input['password'],
-            ]), function (User $user) {
-                $this->createTeam($user);
-            });
-        });
-        
     }
 
     /**
@@ -59,7 +44,12 @@ class UserSeeder extends Seeder
     {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
-            'name' => explode(' ', $user->name, 2)[0]."'s Team",
+            'name' => "Admin",
+            'personal_team' => true,
+        ]));
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $user->id,
+            'name' => "Users",
             'personal_team' => true,
         ]));
     }

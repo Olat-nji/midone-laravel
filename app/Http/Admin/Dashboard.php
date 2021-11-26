@@ -15,7 +15,7 @@ class Dashboard extends Component
 
     use WithPagination;
 
-    public $projectPages = 10;
+
     public $usersCount;
     public $adminUsersCount;
 
@@ -26,29 +26,15 @@ class Dashboard extends Component
         $this->usersCount = (User::all()->count()) - $this->adminUsersCount;
     }
 
-    public function delete($id)
-    {
-        $project = Project::find($id)->delete();
-        $this->emit('deleted');
-    }
 
 
     public function render()
     {
-        if (Auth::user()->CurrentTeam->id == 1) {
-            $projects = Project::orderBy('id', 'desc')->paginate($this->projectPages);
-            $allProjects = Project::orderBy('id', 'desc');
-        } else {
-            $projects = Project::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate($this->projectPages);
-            $allProjects = Project::where('user_id', Auth::user()->id);
-        }
 
 
         return view(
             'admin.dashboard',
             [
-                'allProjects' => $allProjects,
-                'projects' => $projects,
                 'messages' => Contact::where('status', null)->get(),
                 'users' => User::orderBy('id', 'desc')->get()->take(6)
             ]
