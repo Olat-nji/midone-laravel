@@ -1,9 +1,5 @@
 <?php
-if(env('APP_ENV')=='local'){
-    $path='/midone-jetstream';
-}else{
-    $path=null;
-}
+
 return [
 
     /*
@@ -19,7 +15,7 @@ return [
     |
     */
 
-    'class_namespace' => 'App\\Http',
+    'class_namespace' => 'App\\Http\\Livewire',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +27,7 @@ return [
     |
     */
 
-    'view_path' => resource_path('views'),
+    'view_path' => resource_path('views/livewire'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +42,7 @@ return [
     |
     */
 
-    'asset_url'  => $path,
+    'asset_url'  => null,
 
     /*
     |--------------------------------------------------------------------------
